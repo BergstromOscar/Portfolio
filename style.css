@@ -4,12 +4,8 @@
     margin: 0;
     padding: 0;
     font-family: 'EB Garamond', serif;
-    box-sizing: border-box;
-}
-
-p{
-    font-family: 'Inter', serif;
     font-weight: 100;
+    box-sizing: border-box;
 }
 
 html{
@@ -46,7 +42,7 @@ html{
     right: 40px;
     color: #fff;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 100;
     cursor: pointer;
     transition: 0.3s;
   }
@@ -150,6 +146,7 @@ nav ul li a:hover::after{
 
 .header-text h1{
     font-size: 60px;
+
     margin-top: 20px;
 }
 .header-text h1 span {
@@ -182,7 +179,7 @@ nav ul li a:hover::after{
 
 .sub-title{
     font-size: 60px;
-    font-weight: 600;
+    font-weight: 100;
     color: var(--clr-text);
 }
 
@@ -193,7 +190,7 @@ nav ul li a:hover::after{
 .tab-links{
     margin-right: 50px;
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 100;
     cursor: pointer;
     position: relative;
 }
@@ -253,14 +250,14 @@ nav ul li a:hover::after{
     background:var(--clr-content-background);
     padding: 40px;
     font-size: 13px;
-    font-weight: 300;
+    font-weight: 100;
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
 }
 
 .services-list div h2{
     font-size: 30px;
-    font-weight: 500;
+    font-weight: 100;
     margin-bottom: 15px;
 }
 
@@ -323,7 +320,7 @@ nav ul li a:hover::after{
 }
 
 .layer h3{
-    font-weight: 500;
+    font-weight: 100;
     margin-bottom: 20px;
 }
 
@@ -429,7 +426,7 @@ form .btn2{
     text-align: center;
     padding: 25px 0;
     background:var(--clr-content-background);
-    font-weight: 300;
+    font-weight: 100;
     margin-top: 20px;
 }
 
