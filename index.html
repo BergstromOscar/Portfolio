@@ -146,7 +146,7 @@
                 <a href="resources/Personligt brev.pdf" download class="btn btn2">Download cover letter</a>
             </div>
             <div class="contact-right">
-                <form name="submit-to-google-sheet" netlify>
+                <form name="contact-form" netlify>
                     <input type="text" name="Name" placeholder="Your name" required>
                     <input type="email" name="Email" placeholder="Your email" required>
                     <textarea name="Message" rows="6" placeholder="Your message"></textarea>
@@ -195,21 +195,17 @@ var tablinks = document.getElementsByClassName("tab-links");
 
 <script>
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxm96CW8gi-tGtihcs-ZMEnsUK4A0jvUAr_uQ48GXP5sIx1wjs_bw-vBYcGsBrT3DCn/exec'
-  const form = document.forms['submit-to-google-sheet']
+const form = document.forms['contact-form']
 const msg = document.getElementById("msg");
 
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {msg.innerHTML="The message has been sent!"
-      setTimeout(function(){
-        msg.innerHTML = "";
-      },5000)
-      form.reset()
-    })
-      .catch(error => console.error('Error!', error.message))
-  })
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  msg.innerHTML = "The message has been sent!";
+  setTimeout(() => {
+    msg.innerHTML = "";
+  }, 5000);
+  form.reset();
+});
 
 </script>
 
