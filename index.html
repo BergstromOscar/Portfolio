@@ -241,6 +241,13 @@ console.log(html)
       const img = allImages[currentIndex];
       const originalName = img.getAttribute('data-name');
       popupImg.src = `images/archive/sizeOriginal/${originalName}`;
+      popupImg.srcset=`
+                ${imagePath}size250/${name} 300w, 
+                ${imagePath}size400/${name} 600w, 
+                ${imagePath}size800/${name} 1000w,
+                ${imagePath}size2000/${name} 1500w,
+                ${imagePath}sizeOriginal/${name} 2250w`;
+      popupImg.sizes=`(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2000px) 2000px, (max-width: 2250px) 2250px`;
       popupImg.alt = img.alt;
       popup.style.display = "block";
     }
