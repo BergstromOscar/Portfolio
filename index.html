@@ -6,7 +6,6 @@
     <title>Oscar Bergström Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script rel="preload" src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
@@ -202,15 +201,16 @@
       const html = `
         <div class="work">
           <img 
-            src="${imagePath}${name}" 
+            src="${imagePath}size250/${name}" 
             alt="${title}" 
             loading="lazy" 
+            data-name="${name}"
             srcset="
                 ${imagePath}size250/${name} 300w, 
                 ${imagePath}size400/${name} 600w, 
                 ${imagePath}size800/${name} 1000w,
                 ${imagePath}size2000/${name} 1500w,
-                ${imagePath}${name} 2250w"
+                ${imagePath}sizeOriginal/${name} 2250w"
             sizes="(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2000px) 2000px, (max-width: 2250px) 2250px" >
           <div class="layer">
             <h3>${title}</h3>
@@ -239,7 +239,8 @@ console.log(html)
       if (index >= allImages.length) index = 0;
       currentIndex = index;
       const img = allImages[currentIndex];
-      popupImg.src = img.src;
+      const originalName = img.getAttribute('data-name');
+      popupImg.src = `images/archive/sizeOriginal/${originalName}`;
       popupImg.alt = img.alt;
       popup.style.display = "block";
     }
@@ -261,8 +262,7 @@ console.log(html)
   
     nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
     prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
-  
-    // Extra: Navigera med piltangenter
+
     document.addEventListener("keydown", (e) => {
       if (popup.style.display === "block") {
         if (e.key === "ArrowRight") showImage(currentIndex + 1);
