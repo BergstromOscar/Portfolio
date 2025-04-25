@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Bergström Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">    
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo" alt="Oscar Bergström logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <p>Photographer</p>
+            <h1>Hi, I´m <span>Oscar</span><br>Bergström</h1>
+        </div>
+    </div>
+</div>
+<!--About-->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/profile.png" alt="Profile picture Oscar Bergstrom">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About me</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repudiandae modi placeat similique sequi, maxime voluptatem laudantium tempora consectetur quos magnam dolorum repellat ducimus magni, explicabo praesentium optio aspernatur. Cum?</p>
+            
+                <div class="tab-title">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Photographer</span><br>Freelance Photographer</li>
+                        <li><span>Drone Pilot</span><br>Drone pilot with licence for the open category</li>
+                        <li><span>App Developer</span><br>Building mobile apps</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>Web Developer</span><br>Web app Developer</li>
+                        <li><span>UI/UX</span><br>Designing web/app interfaces</li>
+                        <li><span>App Developer</span><br>Building apps</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Linneuniversitetet 2018-2021</span><br>Interactive media web technologies</li>
+                        <li><span>Medieinstitutet 2024-2025</span><br>Marketing automation specialist</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--Services-->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-chart-simple"></i>
+                <h2>Marketing</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus eligendi, itaque amet consequatur vel provident quisquam harum quaerat quae voluptatem, ullam rerum at eveniet illum autem officiis porro recusandae.</p>
+                <a href="#"> Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web design</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus eligendi, itaque amet consequatur vel provident quisquam harum quaerat quae voluptatem, ullam rerum at eveniet illum autem officiis porro recusandae.</p>
+                <a href="#"> Learn more</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-camera"></i>
+                <h2>Photography</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus eligendi, itaque amet consequatur vel provident quisquam harum quaerat quae voluptatem, ullam rerum at eveniet illum autem officiis porro recusandae.</p>
+                <a href="#"> Learn more</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Portfolio-->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/My work/Castle.jpg" alt="Castle">
+                    <div class="layer">
+                        <h3>Castle</h3>
+                        <p>test test</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/My work/SandDunes.jpg" alt="Sand Dunes">
+                    <div class="layer">
+                        <h3>Sand Dunes</h3>
+                        <p>test test</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/My work/Shore.jpg" alt="Shore">
+                    <div class="layer">
+                        <h3>Shore</h3>
+                        <p>test test</p>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+    </div>
+</div>
+<!--Contact-->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact me</h1>
+                <p><i class="fas fa-paper-plane"></i>oscar.bergstrom96@gmail.com</p>
+                <p><i class="fas fa-phone-square-alt"></i>(+46) 0707805260</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/OscarBergstrom96/"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/oscar-bergstr%C3%B6m-940297180/"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/racsomortsgreb/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/BergstromOscar/"><i class="fab fa-github"></i></a>
+                </div>
+                <a href="resources/CV.pdf" download class="btn btn2">Download CV</a>
+                <a href="resources/Personligt brev.pdf" download class="btn btn2">Download cover letter</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your name" required>
+                    <input type="email" name="Email" placeholder="Your email" required>
+                    <textarea name="Message" rows="6" placeholder="Your message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright by Oscar.</p>
+    </div>
+</div>
+
+<script>
+
+var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+    
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0px";
+    }
+
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+</script>
+
+<script>
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxm96CW8gi-tGtihcs-ZMEnsUK4A0jvUAr_uQ48GXP5sIx1wjs_bw-vBYcGsBrT3DCn/exec'
+  const form = document.forms['submit-to-google-sheet']
+const msg = document.getElementById("msg");
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {msg.innerHTML="The message has been sent!"
+      setTimeout(function(){
+        msg.innerHTML = "";
+      },5000)
+      form.reset()
+    })
+      .catch(error => console.error('Error!', error.message))
+  })
+
+</script>
+
+</body>
+</html>
