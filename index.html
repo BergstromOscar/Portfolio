@@ -5,8 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oscar Bergström Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous"></script>
+    <script rel="preload" src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
+
+<!-------------------------------Popup------------------------------->
+<div id="image-popup" class="popup">
+    <span class="close">&times;</span>
+    <img class="popup-content" id="popup-img" alt="Fullscreen image" loading="lazy">
+    <div class="popup-nav">
+        <span id="prev" class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+</div>
+
+<!-------------------------------Body------------------------------->
 <body>
 <div id="header">    
     <div class="container">
@@ -23,45 +38,45 @@
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <p>Photographer</p>
             <h1>Hi, I´m <span>Oscar</span><br>Bergström</h1>
+            <h2>Marketing/Programmer/Content</h2>
         </div>
     </div>
 </div>
-<!--About-->
+<!-------------------------------About------------------------------->
 <div id="about">
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="images/profile.png" alt="Profile picture Oscar Bergstrom">
+                <img src="images/profile.png" alt="Profile picture Oscar Bergstrom" loading="lazy">
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About me</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repudiandae modi placeat similique sequi, maxime voluptatem laudantium tempora consectetur quos magnam dolorum repellat ducimus magni, explicabo praesentium optio aspernatur. Cum?</p>
             
                 <div class="tab-title">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                    <h3 class="tab-links active-link" onclick="opentab('skills')">Skills</h3>
+                    <h3 class="tab-links" onclick="opentab('experience')">Experience</h3>
+                    <h3 class="tab-links" onclick="opentab('education')">Education</h3>
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
-                        <li><span>Photographer</span><br>Freelance Photographer</li>
-                        <li><span>Drone Pilot</span><br>Drone pilot with licence for the open category</li>
-                        <li><span>App Developer</span><br>Building mobile apps</li>
+                        <li><h4>Photographer</h4><br><p>Freelance Photographer</p></li>
+                        <li><h4>Drone Pilot</h4><br><p>Drone pilot with licence for the open category</p></li>
+                        <li><h4>App Developer</h4><br><p>Building mobile apps</p></li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><span>Web Developer</span><br>Web app Developer</li>
-                        <li><span>UI/UX</span><br>Designing web/app interfaces</li>
-                        <li><span>App Developer</span><br>Building apps</li>
+                        <li><h4>Web Developer</h4><br><p>Web app Developer</p></li>
+                        <li><h4>UI/UX</h4><br><p>Designing web/app interfaces</p></li>
+                        <li><h4>App Developer</h4><br><p>Building apps</p></li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="education">
                     <ul>
-                        <li><span>Linneuniversitetet 2018-2021</span><br>Interactive media web technologies</li>
-                        <li><span>Medieinstitutet 2024-2025</span><br>Marketing automation specialist</li>
+                        <li><h4>Linneuniversitetet 2018-2021</h4><br><p>Interactive media web technologies</p></li>
+                        <li><h4>Medieinstitutet 2024-2025</h4><br><p>Marketing automation specialist</p></li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +84,7 @@
         </div>
     </div>
 </div>
-<!--Services-->
+<!-------------------------------Services------------------------------->
 <div id="services">
     <div class="container">
         <h1 class="sub-title">My services</h1>
@@ -95,40 +110,15 @@
         </div>
     </div>
 </div>
-<!--Portfolio-->
+<!-------------------------------Portfolio------------------------------->
 <div id="portfolio">
     <div class="container">
         <h1 class="sub-title">My Work</h1>
-            <div class="work-list">
-                <div class="work">
-                    <img src="images/My work/Castle.jpg" alt="Castle">
-                    <div class="layer">
-                        <h3>Castle</h3>
-                        <p>test test</p>
-                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/My work/SandDunes.jpg" alt="Sand Dunes">
-                    <div class="layer">
-                        <h3>Sand Dunes</h3>
-                        <p>test test</p>
-                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/My work/Shore.jpg" alt="Shore">
-                    <div class="layer">
-                        <h3>Shore</h3>
-                        <p>test test</p>
-                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
+            <div class="work-list" id="work-list"></div>
             <a href="#" class="btn">See more</a>
     </div>
 </div>
-<!--Contact-->
+<!-------------------------------Contact------------------------------->
 <div id="contact">
     <div class="container">
         <div class="row">
@@ -142,8 +132,8 @@
                     <a href="https://www.instagram.com/racsomortsgreb/"><i class="fab fa-instagram"></i></a>
                     <a href="https://github.com/BergstromOscar/"><i class="fab fa-github"></i></a>
                 </div>
-                <a href="resources/CV.pdf" download class="btn btn2">Download CV</a>
-                <a href="resources/Personligt brev.pdf" download class="btn btn2">Download cover letter</a>
+                <a href="resources/CV.pdf" download class="btn btn2">CV <i class="fa-solid fa-download"></i></a>
+                <a href="resources/Personligt brev.pdf" download class="btn btn2">Cover letter <i class="fa-solid fa-download"></i></a>
             </div>
             <div class="contact-right">
                 <form name="contact-form" netlify>
@@ -163,7 +153,7 @@
 
 <script>
 
-var tablinks = document.getElementsByClassName("tab-links");
+    var tablinks = document.getElementsByClassName("tab-links");
     var tabcontents = document.getElementsByClassName("tab-contents");
     
     function opentab(tabname){
@@ -178,6 +168,111 @@ var tablinks = document.getElementsByClassName("tab-links");
     }
 
 </script>
+
+<script>
+    const imageNames = [
+      "Castle.jpg",
+      "SandDunes.jpg",
+      "Shore.jpg",
+      "ForeverForest.JPG",
+      "BeachwavesLeft.JPG",
+      "BlueWater.jpg",
+      "BushesAndTrails.jpg",
+      "EndlessForest.JPG",
+      "JettyWithboats.jpg",
+      "Lillypads.JPG",
+      "MistyIsland.JPG",
+      "Mountains.JPG",
+      "ShoreWithBushes.jpg",
+      "SomethingInTheBush.JPG",
+      "SothernHills.JPG",
+      "TurqoseWater.jpg"
+    ];
+  
+    const container = document.getElementById('work-list');
+  
+    imageNames.forEach(name => {
+      const title = name
+        .replace(/\.[^/.]+$/, '') // ta bort filändelsen
+        .replace(/([A-Z])/g, ' $1') // lägg till mellanslag före versaler
+        .replace(/^\s/, '')         // ta bort ev. inledande mellanslag
+        .trim();
+
+      const imagePath = `images/archive/`;
+      const html = `
+        <div class="work">
+          <img 
+            src="${imagePath}${name}" 
+            alt="${title}" 
+            loading="lazy" 
+            srcset="
+                ${imagePath}size250/${name} 300w, 
+                ${imagePath}size400/${name} 600w, 
+                ${imagePath}size800/${name} 1000w,
+                ${imagePath}size2000/${name} 1500w,
+                ${imagePath}${name} 2250w"
+            sizes="(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2000px) 2000px, (max-width: 2250px) 2250px" >
+          <div class="layer">
+            <h3>${title}</h3>
+            <p>test test</p>
+            <a href="#"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></a>
+          </div>
+        </div>
+      `;
+console.log(html)
+      container.innerHTML += html;
+    });
+  </script>
+
+<script>
+    const popup = document.getElementById("image-popup");
+    const popupImg = document.getElementById("popup-img");
+    const closeBtn = document.querySelector(".popup .close");
+    const nextBtn = document.getElementById("next");
+    const prevBtn = document.getElementById("prev");
+  
+    const allImages = Array.from(document.querySelectorAll("#work-list img"));
+    let currentIndex = 0;
+  
+    function showImage(index) {
+      if (index < 0) index = allImages.length - 1;
+      if (index >= allImages.length) index = 0;
+      currentIndex = index;
+      const img = allImages[currentIndex];
+      popupImg.src = img.src;
+      popupImg.alt = img.alt;
+      popup.style.display = "block";
+    }
+  
+    document.addEventListener("click", function (e) {
+      const layer = e.target.closest(".layer");
+      if (layer) {
+        const workImg = layer.closest(".work").querySelector("img");
+        currentIndex = allImages.findIndex(img => img.src === workImg.src);
+        showImage(currentIndex);
+      }
+    });
+  
+    closeBtn.addEventListener("click", () => popup.style.display = "none");
+  
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) popup.style.display = "none";
+    });
+  
+    nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
+    prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
+  
+    // Extra: Navigera med piltangenter
+    document.addEventListener("keydown", (e) => {
+      if (popup.style.display === "block") {
+        if (e.key === "ArrowRight") showImage(currentIndex + 1);
+        if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+        if (e.key === "Escape") popup.style.display = "none";
+      }
+    });
+  </script>
+  
+  
 
 <script>
     
