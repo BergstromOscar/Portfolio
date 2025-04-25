@@ -1,0 +1,10 @@
+:root {
+    --clr-primary: #a3b18a;
+    --clr-secondary: #344e41;
+    --clr-background: #000000;
+    --clr-content-background:  #262626;
+    --clr-gradient: rgb(0,0,0,0.6);
+    --clr-text: #fff;
+    --clr-accent: #a3b18a;
+    --clr-msg: #588157;
+  }

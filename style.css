@@ -1,3 +1,5 @@
+@import url('variables.css');
+
 *{
     margin: 0;
     padding: 0;
@@ -10,8 +12,8 @@ html{
 }
 
 body{
-    background: #080808;
-    color: #fff;
+    background: var(--clr-background);
+    color: var(--clr-text);
 }
 
 #header{
@@ -45,7 +47,7 @@ nav ul li{
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--clr-text);
     text-decoration: none;
     font-size: 18px;
     position: relative;
@@ -55,7 +57,7 @@ nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    background: #ff004f;
+    background: var(--clr-primary);
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -76,12 +78,12 @@ nav ul li a:hover::after{
     margin-top: 20px;
 }
 .header-text h1 span {
-    color: #ff004f;
+    color: var(--clr-primary);
 }
-                                    /*About*/
+/*-----------------------------About-----------------------------*/
 #about{
     padding: 80px 0;
-    color: #ababab;
+    color: var(--clr-text);
 }
 
 .row{
@@ -106,7 +108,7 @@ nav ul li a:hover::after{
 .sub-title{
     font-size: 60px;
     font-weight: 600;
-    color: #fff;
+    color: var(--clr-text);
 }
 
 .tab-title{
@@ -125,7 +127,7 @@ nav ul li a:hover::after{
     content: '';
     width:0;
     height: 3px;
-    background: #ff004f;
+    background: var(--clr-primary);
     position: absolute;
     left: 0;
     bottom: -8px;
@@ -142,8 +144,8 @@ nav ul li a:hover::after{
 }
 
 .tab-contents ul li span{
-    color: #b54769;
-    font-size: 14px;
+    color: var(--clr-accent);
+    font-size: 16px;
 }
 
 .tab-contents{
@@ -154,7 +156,7 @@ nav ul li a:hover::after{
     display: block;
 }
 
-/*Services*/
+/*-----------------------------Services-----------------------------*/
 
 #services{
     padding: 30px 0;
@@ -168,7 +170,7 @@ nav ul li a:hover::after{
 }
 
 .services-list div{
-    background: #262626;
+    background:var(--clr-content-background);
     padding: 40px;
     font-size: 13px;
     font-weight: 300;
@@ -184,18 +186,18 @@ nav ul li a:hover::after{
 
 .services-list div a{
     text-decoration: none;
-    color: #fff;
+    color: var(--clr-text);
     font-size: 12px;
     margin-top: 20px;
     display: inline-block;
 }
 
 .services-list div:hover{
-    background: #ff004f;
+    background: var(--clr-primary);
     transform: translateY(-10px);
 }
 
-/* Portfolio*/
+/*----------------------------- Portfolio-----------------------------*/
 
 #portfolio{
     padding: 50px, 0;
@@ -224,7 +226,7 @@ nav ul li a:hover::after{
 .layer{
     width: 100%;
     height: 0%;
-    background: linear-gradient(rgb(0,0,0,0.6), #ff004f);
+    background: linear-gradient(var(--clr-gradient), var(--clr-primary));
     border-radius: 10px;
     position: absolute;
     left: 0;
@@ -247,11 +249,11 @@ nav ul li a:hover::after{
 
 .layer a{
     margin-top: 20px;
-    color: #ff004f;
+    color: var(--clr-primary);
     text-decoration: none;
     font-size: 18px;
     line-height: 60px;
-    background: #fff;
+    background: var(--clr-text);
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -270,20 +272,20 @@ nav ul li a:hover::after{
     display: block;
     margin: 50px auto;
     width: fit-content;
-    border: 1px solid #ff004f;
+    border: 1px solid var(--clr-primary);
     padding: 14px 50px;
     border-radius: 6px;
     text-decoration: none;
-    color: #fff;
+    color: var(--clr-text);
     transition: background 0.5s;
 }
 
 .btn:hover{
-    background: #ff004f;
+    background: var(--clr-primary);
 
 }
 
-/* Contact*/
+/*----------------------------- Contact-----------------------------*/
 .contact-left{
     flex-basis: 35%;
 }
@@ -296,7 +298,7 @@ nav ul li a:hover::after{
 }
 
 .contact-left p i{
-    color: #ff004f;
+    color: var(--clr-primary);
     margin-right: 15px;
     font-size: 25px;
 }
@@ -309,13 +311,13 @@ margin-top: 30px;
     text-decoration: none;
     font-size: 30px;
     margin-right: 15px;
-    color: #ababab;
+    color: var(--clr-secondary);
     display: inline-block;
 }
 
 .btn.btn2{
     display: inline-block;
-    background: #ff004f;
+    background: var(--clr-primary);
 }
 
 .contact-right form{
@@ -326,10 +328,10 @@ form input, form textarea{
     width: 100%;
     border: 0;
     outline: none;
-    background: #262626;
+    background:var(--clr-content-background);
     padding: 15px;
     margin: 15px 0;
-    color: #fff;
+    color: var(--clr-text);
     font-size: 18px;
     border-radius: 6px;
 }
@@ -345,12 +347,12 @@ form .btn2{
     width: 100%;
     text-align: center;
     padding: 25px 0;
-    background: #262626;
+    background:var(--clr-content-background);
     font-weight: 300;
     margin-top: 20px;
 }
 
-/*Small screens*/
+/*-----------------------------Small screens-----------------------------*/
 nav .fas{
     display: none;
 }
@@ -375,7 +377,7 @@ nav .fas{
     }
 
     nav ul{
-        background: #ff004f;
+        background: var(--clr-primary);
         position: fixed;
         top: 0;
         right: -200px;
@@ -429,7 +431,7 @@ nav .fas{
 }
 
 #msg{
-    color: #61b752;
+    color: var(--clr-msg);
     margin-top: -40px;
     display: block;
 }
