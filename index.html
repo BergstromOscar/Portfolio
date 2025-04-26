@@ -6,21 +6,21 @@
     <title data-i18n="title">Oscar Bergström Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="locales/translations.js"></script>
-    <script rel="preload" src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inter&display=swap" rel="stylesheet">
 </head>
 
-<div id="image-popup" class="popup">
-    <span class="close" >&times;</span>
-    <img class="popup-content" id="popup-img" alt="Fullscreen image" loading="lazy">
-    <div class="popup-nav">
-        <span id="prev" class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
-        <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
-    </div>
-</div>
+
 
 <body>
+    <div id="image-popup" class="popup">
+        <span class="close" >&times;</span>
+        <img class="popup-content" id="popup-img" alt="Fullscreen image" loading="lazy">
+        <div class="popup-nav">
+            <span id="prev" class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+            <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+        </div>
+    </div>
 <div id="header">    
     <div class="container">
         <nav>
@@ -141,15 +141,12 @@
                 <a href="resources/Personligt brev.pdf" download class="btn btn2" data-i18n="contact.download_cover_letter">Cover letter <i class="fa-solid fa-download"></i></a>
             </div>
             <div class="contact-right">
-                <form name="contact-form" netlify>
                     <form name="contact-form" netlify>
                         <input type="text" name="Name" data-i18n="contact_form.name_placeholder" placeholder="Your name" required>
                         <input type="email" name="Email" data-i18n="contact_form.email_placeholder" placeholder="Your email" required>
                         <textarea name="Message" rows="6" data-i18n="contact_form.message_placeholder" placeholder="Your message"></textarea>
                         <button type="submit" class="btn btn2" data-i18n="contact_form.submit_button">Submit</button>
                     </form>
-                    
-                </form>
                 <span id="msg"></span>
             </div>
         </div>
@@ -191,12 +188,12 @@ const seeMoreBtn = document.querySelector('.btn[data-i18n="portfolio.see_more"]'
 let visibleImagesCount = 9;
 
 function displayImages(count) {
-    container.innerHTML = "";  // Rensa tidigare bilder
+    container.innerHTML = "";
     imageNames.slice(0, count).forEach(name => {
         const title = name
-            .replace(/\.[^/.]+$/, '') // ta bort filändelsen
-            .replace(/([A-Z])/g, ' $1') // lägg till mellanslag före versaler
-            .replace(/^\s/, '')         // ta bort ev. inledande mellanslag
+            .replace(/\.[^/.]+$/, '')
+            .replace(/([A-Z])/g, ' $1')
+            .replace(/^\s/, '')   
             .trim();
 
         const imagePath = `https://oscarbergstrom.netlify.app/images/archive/`;
@@ -221,12 +218,11 @@ function displayImages(count) {
 }
 
 seeMoreBtn.addEventListener('click', () => {
-    visibleImagesCount = imageNames.length;  // Visa alla bilder
-    displayImages(visibleImagesCount);      // Uppdatera bilder
-    seeMoreBtn.style.display = 'none';      // Dölj "See more" knappen
+    visibleImagesCount = imageNames.length;
+    displayImages(visibleImagesCount);      
+    seeMoreBtn.style.display = 'none';      
 });
 
-// Initialt visa 6 bilder
 displayImages(visibleImagesCount);
 
   </script>
@@ -238,10 +234,13 @@ displayImages(visibleImagesCount);
     const nextBtn = document.getElementById("next");
     const prevBtn = document.getElementById("prev");
   
-    const allImages = Array.from(document.querySelectorAll("#work-list img"));
+    function getAllImages() {
+    return Array.from(document.querySelectorAll("#work-list img"));
+}
     let currentIndex = 0;
   
     function showImage(index) {
+      const allImages = getAllImages();
       if (index < 0) index = allImages.length - 1;
       if (index >= allImages.length) index = 0;
       currentIndex = index;
@@ -253,13 +252,15 @@ displayImages(visibleImagesCount);
     }
   
     document.addEventListener("click", function (e) {
-      const layer = e.target.closest(".work");
-      if (layer) {
-        const workImg = layer.closest(".work").querySelector("img");
-        currentIndex = allImages.findIndex(img => img.src === workImg.src);
-        showImage(currentIndex);
-      }
-    });
+  const allImages = getAllImages();
+  const layer = e.target.closest(".work");
+  if (layer) {
+    const workImg = layer.closest(".work").querySelector("img");
+    
+    currentIndex = allImages.findIndex(img => img.src === workImg.src);
+    showImage(currentIndex);
+  }
+});
   
     closeBtn.addEventListener("click", () => popup.style.display = "none");
   
