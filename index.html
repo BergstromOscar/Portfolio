@@ -3,150 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oscar Bergström Portfolio</title>
+    <title data-i18n="title">Oscar Bergström Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="locales/translations.js"></script>
     <script rel="preload" src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 
-<!-------------------------------Popup------------------------------->
 <div id="image-popup" class="popup">
-    <span class="close">&times;</span>
+    <span class="close" >&times;</span>
     <img class="popup-content" id="popup-img" alt="Fullscreen image" loading="lazy">
     <div class="popup-nav">
         <span id="prev" class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
         <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
-      </div>
+    </div>
 </div>
 
-<!-------------------------------Body------------------------------->
 <body>
 <div id="header">    
     <div class="container">
         <nav>
             <img src="https://oscarbergstrom.netlify.app/images/logo.png" class="logo" alt="Oscar Bergström logo">
             <ul id="sidemenu">
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" data-i18n="nav.about">About Me</a></li>
+                <li><a href="#services" data-i18n="nav.services">Services</a></li>
+                <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <div class="language-dropdown">
+                    <i class="fa-solid fa-earth-europe" onclick="toggleLanguageMenu()"></i>
+                    <div id="language-menu" class="dropdown-content" style="display: none;">
+                        <button onclick="setLanguage('sv')">Svenska</button>
+                        <button onclick="setLanguage('en')">English</button>
+                    </div>
+                </div>
                 <i class="fas fa-times" onclick="closemenu()"></i>
             </ul>
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <h1>Hi, I´m <span>Oscar</span><br>Bergström</h1>
-            <h2>Marketing Automation<br>Content creator<br>Programmer</h2>
+            <h1 data-i18n="header.hi">Hi, I´m <span>Oscar</span><br>Bergström</h1>
+            <h2 data-i18n="header.job">Marketing Automation<br>Content creator<br>Programmer</h2>
         </div>
     </div>
 </div>
-<!-------------------------------About------------------------------->
+
 <div id="about">
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="https://oscarbergstrom.netlify.app/images/profile.jpg" alt="Profile picture Oscar Bergstrom" loading="lazy">
+                <img src="images/profile.png" alt="Profile picture Oscar Bergstrom" loading="lazy">
             </div>
             <div class="about-col-2">
-                <h1 class="sub-title">About me</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam repudiandae modi placeat similique sequi, maxime voluptatem laudantium tempora consectetur quos magnam dolorum repellat ducimus magni, explicabo praesentium optio aspernatur. Cum?</p>
-            
+                <h1 class="sub-title" data-i18n="about.title">About me</h1>
+                <p data-i18n="about.short_description"></p>
                 <div class="tab-title">
-                    <h3 class="tab-links active-link" onclick="opentab('skills')">Skills</h3>
-                    <h3 class="tab-links" onclick="opentab('experience')">Experience</h3>
-                    <h3 class="tab-links" onclick="opentab('education')">Education</h3>
+                    <h3 class="tab-links active-link" onclick="opentab('skills')" data-i18n="tabs.skills.title">Skills</h3>
+                    <h3 class="tab-links" onclick="opentab('experience')" data-i18n="tabs.experience.title">Experience</h3>
+                    <h3 class="tab-links" onclick="opentab('education')" data-i18n="tabs.education.title">Education</h3>
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
-                        <li><h4>Photographer</h4><br><p>Freelance Photographer</p></li>
-                        <li><h4>Drone Pilot</h4><br><p>Drone pilot with licence for the open category</p></li>
-                        <li><h4>App Developer</h4><br><p>Building mobile apps</p></li>
+                        <li><h4 data-i18n="tabs.skills.photographer">Photographer</h4><br><p data-i18n="tabs.skills.photographer_description">Freelance Photographer</p></li>
+                        <li><h4 data-i18n="tabs.skills.designer">Designer</h4><br><p data-i18n="tabs.skills.designer_description">Drone pilot</p></li>
+                        <li><h4 data-i18n="tabs.skills.app_developer">App Developer</h4><br><p data-i18n="tabs.skills.app_developer_description">Building mobile apps</p></li>
+                        <li><h4 data-i18n="tabs.skills.video">Video</h4><br><p data-i18n="tabs.skills.video_description">Freelance Videographer</p></li>
+                        <li><h4 data-i18n="tabs.skills.drone_pilot">Drone Pilot</h4><br><p data-i18n="tabs.skills.drone_pilot_description">Drone pilot with licence for the open category</p></li>
+                        <li><h4 data-i18n="tabs.skills.SEO">SEO</h4><br><p data-i18n="tabs.skills.SEO_description">SEO</p></li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><h4>Web Developer</h4><br><p>Web app Developer</p></li>
-                        <li><h4>UI/UX</h4><br><p>Designing web/app interfaces</p></li>
-                        <li><h4>App Developer</h4><br><p>Building apps</p></li>
+                        <li><h4 data-i18n="tabs.experience.software_developer">Software Developer</h4><br><p data-i18n="tabs.experience.software_developer_description">Software Developer</p></li>
+                        <li><h4 data-i18n="tabs.experience.marketing_automation">Marketing Automation</h4><br><p data-i18n="tabs.experience.marketing_automation_description">Marketing Automation</p></li>
+                        <li><h4 data-i18n="tabs.experience.photographer">Photographer</h4><br><p data-i18n="tabs.experience.photographer_description">Photographer</p></li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="education">
                     <ul>
-                        <li><h4>Linneuniversitetet 2018-2021</h4><br><p>Interactive media web technologies</p></li>
-                        <li><h4>Medieinstitutet 2024-2025</h4><br><p>Marketing automation specialist</p></li>
+                        <li><h4 data-i18n="tabs.education.linneuniversitetet">Linneuniversitetet 2018-2021</h4><br><p data-i18n="tabs.education.linneuniversitetet_description">Interactive media web technologies</p></li>
+                        <li><h4 data-i18n="tabs.education.medieinstitutet">Medieinstitutet 2024-2025</h4><br><p data-i18n="tabs.education.medieinstitutet_description">Marketing automation specialist</p></li>
                     </ul>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-<!-------------------------------Services------------------------------->
+
 <div id="services">
     <div class="container">
-        <h1 class="sub-title">My services</h1>
+        <h1 class="sub-title" data-i18n="services.title">My services</h1>
         <div class="services-list">
             <div>
                 <i class="fa-solid fa-chart-simple"></i>
-                <h2>Marketing</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus eligendi, itaque amet consequatur vel provident quisquam harum quaerat quae voluptatem, ullam rerum at eveniet illum autem officiis porro recusandae.</p>
-                <a href="#"> Learn more</a>
+                <h2 data-i18n="services.marketing.title">Marketing</h2>
+                <p data-i18n="services.marketing.description"></p>
+                <a href="#" data-i18n="services.learn_more">Learn more</a>
             </div>
             <div>
                 <i class="fa-solid fa-code"></i>
-                <h2>Web design</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus eligendi, itaque amet consequatur vel provident quisquam harum quaerat quae voluptatem, ullam rerum at eveniet illum autem officiis porro recusandae.</p>
-                <a href="#"> Learn more</a>
+                <h2 data-i18n="services.webdesign.title">Web design</h2>
+                <p data-i18n="services.webdesign.description"></p>
+                <a href="#" data-i18n="services.learn_more">Learn more</a>
             </div>
             <div>
                 <i class="fa-solid fa-camera"></i>
-                <h2>Photography</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias accusamus eligendi, itaque amet consequatur vel provident quisquam harum quaerat quae voluptatem, ullam rerum at eveniet illum autem officiis porro recusandae.</p>
-                <a href="#"> Learn more</a>
+                <h2 data-i18n="services.photography.title">Photography</h2>
+                <p data-i18n="services.photography.description"></p>
+                <a href="#" data-i18n="services.learn_more">Learn more</a>
             </div>
         </div>
     </div>
 </div>
-<!-------------------------------Portfolio------------------------------->
+
 <div id="portfolio">
     <div class="container">
-        <h1 class="sub-title">My Work</h1>
-            <div class="work-list" id="work-list"></div>
-            <a href="#" class="btn">See more</a>
+        <h1 class="sub-title" data-i18n="portfolio.title">My Work</h1>
+        <div class="work-list" id="work-list"></div>
+        <button class="btn" data-i18n="portfolio.see_more">See more</button>
     </div>
 </div>
-<!-------------------------------Contact------------------------------->
+
 <div id="contact">
     <div class="container">
         <div class="row">
             <div class="contact-left">
-                <h1 class="sub-title">Contact me</h1>
-                <p><i class="fas fa-paper-plane"></i>oscar.bergstrom96@gmail.com</p>
-                <p><i class="fas fa-phone-square-alt"></i>(+46) 0707805260</p>
+                <h1 class="sub-title" data-i18n="contact.title">Contact me</h1>
+                <p><i class="fas fa-paper-plane"></i><span data-i18n="contact.email">oscar.bergstrom96@gmail.com</span></p>
+                <p><i class="fas fa-phone-square-alt"></i><span data-i18n="contact.phone">(+46) 0707805260</span></p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/OscarBergstrom96/"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.linkedin.com/in/oscar-bergstr%C3%B6m-940297180/"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/racsomortsgreb/"><i class="fab fa-instagram"></i></a>
                     <a href="https://github.com/BergstromOscar/"><i class="fab fa-github"></i></a>
                 </div>
-                <a href="resources/CV.pdf" download class="btn btn2">CV <i class="fa-solid fa-download"></i></a>
-                <a href="resources/Personligt brev.pdf" download class="btn btn2">Cover letter <i class="fa-solid fa-download"></i></a>
+                <a href="resources/CV.pdf" download class="btn btn2" data-i18n="contact.download_cv">CV <i class="fa-solid fa-download"></i></a>
+                <a href="resources/Personligt brev.pdf" download class="btn btn2" data-i18n="contact.download_cover_letter">Cover letter <i class="fa-solid fa-download"></i></a>
             </div>
             <div class="contact-right">
                 <form name="contact-form" netlify>
-                    <input type="text" name="Name" placeholder="Your name" required>
-                    <input type="email" name="Email" placeholder="Your email" required>
-                    <textarea name="Message" rows="6" placeholder="Your message"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
+                    <form name="contact-form" netlify>
+                        <input type="text" name="Name" data-i18n="contact_form.name_placeholder" placeholder="Your name" required>
+                        <input type="email" name="Email" data-i18n="contact_form.email_placeholder" placeholder="Your email" required>
+                        <textarea name="Message" rows="6" data-i18n="contact_form.message_placeholder" placeholder="Your message"></textarea>
+                        <button type="submit" class="btn btn2" data-i18n="contact_form.submit_button">Submit</button>
+                    </form>
+                    
                 </form>
                 <span id="msg"></span>
             </div>
         </div>
     </div>
     <div class="copyright">
-        <p>Copyright by Oscar.</p>
+        <p data-i18n="contact.copyright">Copyright by Oscar.</p>
     </div>
 </div>
 
@@ -170,57 +179,56 @@
 
 <script>
     const imageNames = [
-      "Castle.jpg",
-      "SandDunes.jpg",
-      "Shore.jpg",
-      "ForeverForest.JPG",
-      "BeachwavesLeft.JPG",
-      "BlueWater.jpg",
-      "BushesAndTrails.jpg",
-      "EndlessForest.JPG",
-      "JettyWithboats.jpg",
-      "Lillypads.JPG",
-      "MistyIsland.JPG",
-      "Mountains.JPG",
-      "ShoreWithBushes.jpg",
-      "SomethingInTheBush.JPG",
-      "SothernHills.JPG",
-      "TurqoseWater.jpg"
-    ];
-  
-    const container = document.getElementById('work-list');
-  
-    imageNames.forEach(name => {
-      const title = name
-        .replace(/\.[^/.]+$/, '')   // ta bort filändelsen
-        .replace(/([A-Z])/g, ' $1') // lägg till mellanslag före versaler
-        .replace(/^\s/, '')         // ta bort ev. inledande mellanslag
-        .trim();
+    "Castle.jpg", "SandDunes.jpg", "Shore.jpg", "ForeverForest.JPG",
+    "BeachwavesLeft.JPG", "BlueWater.jpg", "BushesAndTrails.jpg", "EndlessForest.JPG",
+    "JettyWithboats.jpg", "Lillypads.JPG", "MistyIsland.JPG", "Mountains.JPG",
+    "ShoreWithBushes.jpg", "SomethingInTheBush.JPG", "SothernHills.JPG", "TurqoseWater.jpg"
+];
 
-      const imagePath = `https://oscarbergstrom.netlify.app/images/archive/`;
-      const html = `
-        <div class="work">
-          <img 
-            src="${imagePath}size250/${name}" 
-            alt="${title}" 
-            loading="lazy" 
-            data-name="${name}"
-            srcset="
-                ${imagePath}size250/${name} 300w, 
-                ${imagePath}size400/${name} 600w, 
-                ${imagePath}size800/${name} 1000w,
-                ${imagePath}sizeOriginal/${name} 2250w"
-            sizes="(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2250px) 2250px" >
-          <div class="layer">
-            <h3>${title}</h3>
-            <p>test test</p>
-            <a href="#"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></a>
-          </div>
-        </div>
-      `;
-console.log(html)
-      container.innerHTML += html;
+const container = document.getElementById('work-list');
+const seeMoreBtn = document.querySelector('.btn[data-i18n="portfolio.see_more"]');
+
+let visibleImagesCount = 9;
+
+function displayImages(count) {
+    container.innerHTML = "";  // Rensa tidigare bilder
+    imageNames.slice(0, count).forEach(name => {
+        const title = name
+            .replace(/\.[^/.]+$/, '') // ta bort filändelsen
+            .replace(/([A-Z])/g, ' $1') // lägg till mellanslag före versaler
+            .replace(/^\s/, '')         // ta bort ev. inledande mellanslag
+            .trim();
+
+        const imagePath = `https://oscarbergstrom.netlify.app/images/archive/`;
+        const html = `
+            <div class="work">
+                <img 
+                    src="${imagePath}size250/${name}" 
+                    alt="${title}" 
+                    loading="lazy" 
+                    data-name="${name}"
+                    srcset="
+                        ${imagePath}size250/${name} 300w, 
+                        ${imagePath}size400/${name} 600w, 
+                        ${imagePath}size800/${name} 1000w,
+                        ${imagePath}sizeOriginal/${name} 2250w"
+                    sizes="(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2250px) 2250px" >
+                
+            </div>
+        `;
+        container.innerHTML += html;
     });
+}
+
+seeMoreBtn.addEventListener('click', () => {
+    visibleImagesCount = imageNames.length;  // Visa alla bilder
+    displayImages(visibleImagesCount);      // Uppdatera bilder
+    seeMoreBtn.style.display = 'none';      // Dölj "See more" knappen
+});
+
+// Initialt visa 6 bilder
+displayImages(visibleImagesCount);
+
   </script>
 
 <script>
@@ -245,7 +253,7 @@ console.log(html)
     }
   
     document.addEventListener("click", function (e) {
-      const layer = e.target.closest(".layer");
+      const layer = e.target.closest(".work");
       if (layer) {
         const workImg = layer.closest(".work").querySelector("img");
         currentIndex = allImages.findIndex(img => img.src === workImg.src);
@@ -303,5 +311,49 @@ form.addEventListener('submit', e => {
 
 </script>
 
+<script>
+        function toggleLanguageMenu() {
+            const menu = document.getElementById('language-menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function setLanguage(lang) {
+            localStorage.setItem('preferredLanguage', lang);
+
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const keys = el.getAttribute('data-i18n').split('.');
+                let text = translations[lang];
+                
+                keys.forEach(key => {
+                    if (text) {
+                        text = text[key];
+                    }
+                });
+
+                if (text) {
+                    if (el.hasAttribute('placeholder')) {
+                        el.setAttribute('placeholder', text);
+                    } else {
+                        el.innerHTML = text;
+                    }
+                }
+            });
+            document.getElementById('language-menu').style.display = 'none';
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const userLang = navigator.language || navigator.userLanguage;
+            
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else if (userLang.startsWith('sv')) {
+                setLanguage('sv');
+            } else {
+                setLanguage('en');
+            }
+        });
+    </script>
 </body>
 </html>
