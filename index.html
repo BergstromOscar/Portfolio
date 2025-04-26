@@ -141,7 +141,8 @@
                 <a href="resources/Personligt brev.pdf" download class="btn btn2" data-i18n="contact.download_cover_letter">Cover letter <i class="fa-solid fa-download"></i></a>
             </div>
             <div class="contact-right">
-                    <form name="contact-form" netlify>
+                    <form name="contact-form"  method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="contact-form">
                         <input type="text" name="Name" data-i18n="contact_form.name_placeholder" placeholder="Your name" required>
                         <input type="email" name="Email" data-i18n="contact_form.email_placeholder" placeholder="Your email" required>
                         <textarea name="Message" rows="6" data-i18n="contact_form.message_placeholder" placeholder="Your message"></textarea>
@@ -302,7 +303,6 @@ const form = document.forms['contact-form']
 const msg = document.getElementById("msg");
 
 form.addEventListener('submit', e => {
-  e.preventDefault();
   msg.innerHTML = "The message has been sent!";
   setTimeout(() => {
     msg.innerHTML = "";
