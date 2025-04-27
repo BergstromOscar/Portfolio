@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
-
+<!-----------------------------Popup img----------------------------->
 <body>
     <div id="image-popup" class="popup">
         <span class="close" >&times;</span>
@@ -20,8 +20,10 @@
             <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
     </div>
+<!-----------------------------Header----------------------------->
 <div id="header">    
     <div class="container">
+        <!-----------------------------Menu----------------------------->
         <nav>
             <img src="https://oscarbergstrom.netlify.app/images/logo.png" class="logo" alt="Oscar Bergström logo">
             <ul id="sidemenu">
@@ -40,6 +42,7 @@
             </ul>
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
+        <!-----------------------------Header Text----------------------------->
         <div class="header-text">
             <h1 data-i18n="header.hi"></h1>
             <h2 data-i18n="header.marketing_automation"></h2>
@@ -48,6 +51,7 @@
         </div>
     </div>
 </div>
+<!-----------------------------About----------------------------->
 
 <div id="about">
     <div class="container">
@@ -59,55 +63,56 @@
                 <h1 class="sub-title animate" data-i18n="about.title"></h1>
                 <p class="sub-p animate" data-i18n="about.short_description"></p>
                 <div class="tab-title animate">
-                    <h3 class="tab-links active-link" onclick="opentab('skills')" data-i18n="tabs.skills.title">Skills</h3>
-                    <h3 class="tab-links" onclick="opentab('experience')" data-i18n="tabs.experience.title">Experience</h3>
-                    <h3 class="tab-links" onclick="opentab('education')" data-i18n="tabs.education.title">Education</h3>
+                    <h3 class="tab-links animate active-link" onclick="opentab('skills')" data-i18n="tabs.skills.title">Skills</h3>
+                    <h3 class="tab-links animate" onclick="opentab('experience')" data-i18n="tabs.experience.title">Experience</h3>
+                    <h3 class="tab-links animate" onclick="opentab('education')" data-i18n="tabs.education.title">Education</h3>
                 </div>
-                <div class="tab-contents active-tab animate" id="skills">
+                <div class="tab-contents active-tab" id="skills">
                     <ul>
-                        <li><h4 data-i18n="tabs.skills.photographer">Photographer</h4><br><p data-i18n="tabs.skills.photographer_description">Freelance Photographer</p></li>
-                        <li><h4 data-i18n="tabs.skills.designer">Designer</h4><br><p data-i18n="tabs.skills.designer_description">Drone pilot</p></li>
-                        <li><h4 data-i18n="tabs.skills.app_developer">App Developer</h4><br><p data-i18n="tabs.skills.app_developer_description">Building mobile apps</p></li>
-                        <li><h4 data-i18n="tabs.skills.video">Video</h4><br><p data-i18n="tabs.skills.video_description">Freelance Videographer</p></li>
-                        <li><h4 data-i18n="tabs.skills.drone_pilot">Drone Pilot</h4><br><p data-i18n="tabs.skills.drone_pilot_description">Drone pilot with licence for the open category</p></li>
-                        <li><h4 data-i18n="tabs.skills.SEO">SEO</h4><br><p data-i18n="tabs.skills.SEO_description">SEO</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.photographer">Photographer</h4><br><p data-i18n="tabs.skills.photographer_description">Freelance Photographer</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.designer">Designer</h4><br><p data-i18n="tabs.skills.designer_description">Drone pilot</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.app_developer">App Developer</h4><br><p data-i18n="tabs.skills.app_developer_description">Building mobile apps</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.video">Video</h4><br><p data-i18n="tabs.skills.video_description">Freelance Videographer</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.drone_pilot">Drone Pilot</h4><br><p data-i18n="tabs.skills.drone_pilot_description">Drone pilot with licence for the open category</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.SEO">SEO</h4><br><p data-i18n="tabs.skills.SEO_description">SEO</p></li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="experience">
                     <ul>
-                        <li><h4 data-i18n="tabs.experience.software_developer">Software Developer</h4><br><p data-i18n="tabs.experience.software_developer_description">Software Developer</p></li>
-                        <li><h4 data-i18n="tabs.experience.marketing_automation">Marketing Automation</h4><br><p data-i18n="tabs.experience.marketing_automation_description">Marketing Automation</p></li>
-                        <li><h4 data-i18n="tabs.experience.photographer">Photographer</h4><br><p data-i18n="tabs.experience.photographer_description">Photographer</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.experience.software_developer">Software Developer</h4><br><p data-i18n="tabs.experience.software_developer_description">Software Developer</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.experience.marketing_automation">Marketing Automation</h4><br><p data-i18n="tabs.experience.marketing_automation_description">Marketing Automation</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.experience.photographer">Photographer</h4><br><p data-i18n="tabs.experience.photographer_description">Photographer</p></li>
                     </ul>
                 </div>
                 <div class="tab-contents" id="education">
                     <ul>
-                        <li><h4 data-i18n="tabs.education.linneuniversitetet">Linneuniversitetet 2018-2021</h4><br><p data-i18n="tabs.education.linneuniversitetet_description">Interactive media web technologies</p></li>
-                        <li><h4 data-i18n="tabs.education.medieinstitutet">Medieinstitutet 2024-2025</h4><br><p data-i18n="tabs.education.medieinstitutet_description">Marketing automation specialist</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.education.linneuniversitetet">Linneuniversitetet 2018-2021</h4><br><p data-i18n="tabs.education.linneuniversitetet_description">Interactive media web technologies</p></li>
+                        <li class="tab-content-li animate"><h4 data-i18n="tabs.education.medieinstitutet">Medieinstitutet 2024-2025</h4><br><p data-i18n="tabs.education.medieinstitutet_description">Marketing automation specialist</p></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-----------------------------Services----------------------------->
 
 <div id="services">
     <div class="container">
         <h1 class="sub-title animate" data-i18n="services.title"></h1>
-        <div class="services-list animate">
-            <div>
+        <div class="services-list">
+            <div class="services-list-item animate">
                 <i class="fa-solid fa-chart-simple"></i>
                 <h2 data-i18n="services.marketing.title"></h2>
                 <p data-i18n="services.marketing.description"></p>
                 <a href="#" data-i18n="services.learn_more"></a>
             </div>
-            <div>
+            <div class="services-list-item animate">
                 <i class="fa-solid fa-code"></i>
                 <h2 data-i18n="services.webdesign.title"></h2>
                 <p data-i18n="services.webdesign.description"></p>
                 <a href="#" data-i18n="services.learn_more"></a>
             </div>
-            <div>
+            <div class="services-list-item animate">
                 <i class="fa-solid fa-camera"></i>
                 <h2 data-i18n="services.photography.title"></h2>
                 <p data-i18n="services.photography.description"></p>
@@ -116,30 +121,30 @@
         </div>
     </div>
 </div>
-
+<!-----------------------------Portfolio----------------------------->
 <div id="portfolio">
     <div class="container">
-        <h1 class="sub-title" data-i18n="portfolio.title">My Work</h1>
+        <h1 class="sub-title animate" data-i18n="portfolio.title"></h1>
         <div class="work-list" id="work-list"></div>
-        <button class="btn" data-i18n="portfolio.see_more">See more</button>
+        <button class="btn animate" data-i18n="portfolio.see_more"></button>
     </div>
 </div>
-
+<!-----------------------------Contact----------------------------->
 <div id="contact">
     <div class="container">
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title" data-i18n="contact.title">Contact me</h1>
-                <p><i class="fas fa-paper-plane"></i><span data-i18n="contact.email">oscar.bergstrom96@gmail.com</span></p>
-                <p><i class="fas fa-phone-square-alt"></i><span data-i18n="contact.phone">(+46) 0707805260</span></p>
+                <p><i class="fas fa-paper-plane"></i><span data-i18n="contact.email"></span></p>
+                <p><i class="fas fa-phone-square-alt"></i><span data-i18n="contact.phone"></span></p>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/OscarBergstrom96/"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.linkedin.com/in/oscar-bergstr%C3%B6m-940297180/"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.instagram.com/racsomortsgreb/"><i class="fab fa-instagram"></i></a>
                     <a href="https://github.com/BergstromOscar/"><i class="fab fa-github"></i></a>
                 </div>
-                <a href="resources/CV.pdf" download class="btn btn2" data-i18n="contact.download_cv">CV <i class="fa-solid fa-download"></i></a>
-                <a href="resources/Personligt brev.pdf" download class="btn btn2" data-i18n="contact.download_cover_letter">Cover letter <i class="fa-solid fa-download"></i></a>
+                <a href="resources/CV.pdf" download class="btn btn2" data-i18n="contact.download_cv"> <i class="fa-solid fa-download"></i></a>
+                <a href="resources/Personligt brev.pdf" download class="btn btn2" data-i18n="contact.download_cover_letter"> <i class="fa-solid fa-download"></i></a>
             </div>
             <div class="contact-right">
                     <form name="contact-form"  method="POST" data-netlify="true">
@@ -157,7 +162,8 @@
         <p data-i18n="contact.copyright">Copyright by Oscar.</p>
     </div>
 </div>
-
+<!-----------------------------Script----------------------------->
+<!-----------------------------Active tab----------------------------->
 <script>
 
     var tablinks = document.getElementsByClassName("tab-links");
@@ -175,7 +181,7 @@
     }
 
 </script>
-
+<!-----------------------------Img Sizes----------------------------->
 <script>
     const imageNames = [
     "Castle.jpg", "SandDunes.jpg", "Shore.jpg", "ForeverForest.JPG",
@@ -228,7 +234,7 @@ seeMoreBtn.addEventListener('click', () => {
 displayImages(visibleImagesCount);
 
   </script>
-
+<!-----------------------------Popup img----------------------------->
 <script>
     const popup = document.getElementById("image-popup");
     const popupImg = document.getElementById("popup-img");
@@ -281,7 +287,7 @@ displayImages(visibleImagesCount);
       }
     });
   </script>
-
+<!-----------------------------Open/Close menu----------------------------->
 <script>
 
 const menuIcon = document.querySelector(".fa-bars");
@@ -301,7 +307,7 @@ function closemenu() {
     }
 }
 </script>
-
+<!-----------------------------Animate----------------------------->
 <script>
    function animateElements(selector, options = {}) {
     const elements = document.querySelectorAll(selector);
@@ -315,19 +321,8 @@ function closemenu() {
     const handleIntersection = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const el = entry.target;
-                let totalDelay = 0;
-
-                if (delayOnVisible !== null) {
-                    totalDelay = delayOnVisible;
-                }
-
-                if (totalDelay > 0) {
-                    el.style.transitionDelay = `${totalDelay}s`;
-                }
-
-                el.classList.add('animate-visible');
-                observer.unobserve(el);
+                entry.target.classList.add('animate-visible');
+                observer.unobserve(entry.target);
             }
         });
     };
@@ -339,11 +334,11 @@ function closemenu() {
 
         if (delayOnLoad !== null) {
             setTimeout(() => {
-                el.style.transitionDelay = `${delayOnLoad}s`;
+                el.style.animationDelay = `${delayOnLoad + (index * 0.2)}s`; // Exempel på sekventiell delay
                 el.classList.add('animate-visible');
             }, delayOnLoad * 1000);
         } else {
-            observer.observe(el); 
+            observer.observe(el);
         }
     });
 }
@@ -352,17 +347,19 @@ document.addEventListener('DOMContentLoaded', () => {
     animateElements('#about .about-col-1.animate', { delayOnVisible: 0.4 });
     animateElements('#about .sub-title.animate', { delayOnVisible: 0.8 });
     animateElements('#about .sub-p.animate', { delayOnVisible: 1 });
-    animateElements('#about .tab-title.animate', { delayOnLoad: 1.2 });
-    animateElements('#about .tab-contents.animate', { delayOnLoad: 1.4 });
+    animateElements('#about .tab-links.animate', { delayOnLoad: 0.2 });
+    animateElements('#about .tab-content-li.animate', { delayOnLoad: 0.4 });
 
     animateElements('#services .sub-title.animate', { delayOnLoad: 0.4 });
-    animateElements('#services .services-list.animate', { delayOnLoad: 0.6 });
+    animateElements('#services .services-list-item.animate', { delayOnLoad: 0.8 });
 
+    animateElements('#portfolio .sub-title.animate', { delayOnLoad: 0.2 });
+    animateElements('#portfolio .work.animate', { delayOnLoad: 0.4 });
+    animateElements('#portfolio .btn.animate', { delayOnLoad: 0.8 });
 
-    animateElements('#portfolio .animate:first-child', { delayOnLoad: 1 });
 });
 </script>   
-
+<!-----------------------------Contact form----------------------------->
 <script>
 
 const form = document.forms['contact-form']
@@ -375,7 +372,7 @@ form.addEventListener('submit', e => {
   }, 5000);
 });
 </script>
-
+<!-----------------------------Toggle language----------------------------->
 <script>
         function toggleLanguageMenu() {
             const menu = document.getElementById('language-menu');
