@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="locales/translations.js"></script>
     <script src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
-
-
 
 <body>
     <div id="image-popup" class="popup">
@@ -42,8 +41,10 @@
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <h1 data-i18n="header.hi">Hi, I´m <span>Oscar</span><br>Bergström</h1>
-            <h2 data-i18n="header.job">Marketing Automation<br>Content creator<br>Programmer</h2>
+            <h1 data-i18n="header.hi"></h1>
+            <h2 data-i18n="header.marketing_automation"></h2>
+            <h2 data-i18n="header.photographer"></h2>
+            <h2 data-i18n="header.programmer"></h2>
         </div>
     </div>
 </div>
@@ -51,18 +52,18 @@
 <div id="about">
     <div class="container">
         <div class="row">
-            <div class="about-col-1">
+            <div class="about-col-1 animate">
                 <img src="https://oscarbergstrom.netlify.app/images/profile.png" alt="Profile picture Oscar Bergstrom" loading="lazy">
             </div>
             <div class="about-col-2">
-                <h1 class="sub-title" data-i18n="about.title">About me</h1>
-                <p data-i18n="about.short_description"></p>
-                <div class="tab-title">
+                <h1 class="sub-title animate" data-i18n="about.title"></h1>
+                <p class="sub-p animate" data-i18n="about.short_description"></p>
+                <div class="tab-title animate">
                     <h3 class="tab-links active-link" onclick="opentab('skills')" data-i18n="tabs.skills.title">Skills</h3>
                     <h3 class="tab-links" onclick="opentab('experience')" data-i18n="tabs.experience.title">Experience</h3>
                     <h3 class="tab-links" onclick="opentab('education')" data-i18n="tabs.education.title">Education</h3>
                 </div>
-                <div class="tab-contents active-tab" id="skills">
+                <div class="tab-contents active-tab animate" id="skills">
                     <ul>
                         <li><h4 data-i18n="tabs.skills.photographer">Photographer</h4><br><p data-i18n="tabs.skills.photographer_description">Freelance Photographer</p></li>
                         <li><h4 data-i18n="tabs.skills.designer">Designer</h4><br><p data-i18n="tabs.skills.designer_description">Drone pilot</p></li>
@@ -92,25 +93,25 @@
 
 <div id="services">
     <div class="container">
-        <h1 class="sub-title" data-i18n="services.title">My services</h1>
-        <div class="services-list">
+        <h1 class="sub-title animate" data-i18n="services.title"></h1>
+        <div class="services-list animate">
             <div>
                 <i class="fa-solid fa-chart-simple"></i>
-                <h2 data-i18n="services.marketing.title">Marketing</h2>
+                <h2 data-i18n="services.marketing.title"></h2>
                 <p data-i18n="services.marketing.description"></p>
-                <a href="#" data-i18n="services.learn_more">Learn more</a>
+                <a href="#" data-i18n="services.learn_more"></a>
             </div>
             <div>
                 <i class="fa-solid fa-code"></i>
-                <h2 data-i18n="services.webdesign.title">Web design</h2>
+                <h2 data-i18n="services.webdesign.title"></h2>
                 <p data-i18n="services.webdesign.description"></p>
-                <a href="#" data-i18n="services.learn_more">Learn more</a>
+                <a href="#" data-i18n="services.learn_more"></a>
             </div>
             <div>
                 <i class="fa-solid fa-camera"></i>
-                <h2 data-i18n="services.photography.title">Photography</h2>
+                <h2 data-i18n="services.photography.title"></h2>
                 <p data-i18n="services.photography.description"></p>
-                <a href="#" data-i18n="services.learn_more">Learn more</a>
+                <a href="#" data-i18n="services.learn_more"></a>
             </div>
         </div>
     </div>
@@ -199,7 +200,7 @@ function displayImages(count) {
 
         const imagePath = `https://oscarbergstrom.netlify.app/images/archive/`;
         const html = `
-            <div class="work">
+            <div class="work animate">
                 <img 
                     src="${imagePath}size250/${name}" 
                     alt="${title}" 
@@ -280,22 +281,87 @@ displayImages(visibleImagesCount);
       }
     });
   </script>
-  
-  
 
 <script>
-    
-    var sidemenu = document.getElementById("sidemenu");
 
-    function openmenu(){
-        sidemenu.style.right = "0px";
+const menuIcon = document.querySelector(".fa-bars");
+const closeIcon = document.querySelector("#sidemenu .fa-times");
+
+function openmenu() {
+    sidemenu.style.right = "0px";
+    if (window.innerWidth < 850) {
+        menuIcon.style.display = "none";
     }
+}
 
-    function closemenu(){
-        sidemenu.style.right = "-200px";
+function closemenu() {
+    sidemenu.style.right = "-200px"; 
+    if (window.innerWidth < 850) {
+        menuIcon.style.display = "block";
     }
-
+}
 </script>
+
+<script>
+   function animateElements(selector, options = {}) {
+    const elements = document.querySelectorAll(selector);
+    const {
+        delayOnLoad = null,
+        delayOnVisible = 0.5,
+        rootMargin = '0px',     
+        threshold = 0.1         
+    } = options;
+
+    const handleIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                let totalDelay = 0;
+
+                if (delayOnVisible !== null) {
+                    totalDelay = delayOnVisible;
+                }
+
+                if (totalDelay > 0) {
+                    el.style.transitionDelay = `${totalDelay}s`;
+                }
+
+                el.classList.add('animate-visible');
+                observer.unobserve(el);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, { rootMargin, threshold });
+
+    elements.forEach((el, index) => {
+        el.classList.add('animate-item');
+
+        if (delayOnLoad !== null) {
+            setTimeout(() => {
+                el.style.transitionDelay = `${delayOnLoad}s`;
+                el.classList.add('animate-visible');
+            }, delayOnLoad * 1000);
+        } else {
+            observer.observe(el); 
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    animateElements('#about .about-col-1.animate', { delayOnVisible: 0.4 });
+    animateElements('#about .sub-title.animate', { delayOnVisible: 0.8 });
+    animateElements('#about .sub-p.animate', { delayOnVisible: 1 });
+    animateElements('#about .tab-title.animate', { delayOnLoad: 1.2 });
+    animateElements('#about .tab-contents.animate', { delayOnLoad: 1.4 });
+
+    animateElements('#services .sub-title.animate', { delayOnLoad: 0.4 });
+    animateElements('#services .services-list.animate', { delayOnLoad: 0.6 });
+
+
+    animateElements('#portfolio .animate:first-child', { delayOnLoad: 1 });
+});
+</script>   
 
 <script>
 
@@ -353,6 +419,6 @@ form.addEventListener('submit', e => {
                 setLanguage('en');
             }
         });
-    </script>
+</script>
 </body>
 </html>

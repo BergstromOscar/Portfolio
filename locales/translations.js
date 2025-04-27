@@ -9,7 +9,9 @@ const translations = {
     },
     header: {
       hi: "Hej, jag är <span>Oscar</span><br>Bergström",
-      job: "Marknadsföring Automation<br>Innehållsskapare<br>Programmerare"
+      marketing_automation: "Marketing Automation",
+      photographer:"Fotograf",
+      programmer:"Programmerare"
     },
     popup: {
       close: "Stäng",
@@ -110,8 +112,10 @@ const translations = {
       contact: "Contact"
     },
     header: {
-      hi: "Hi, I'm <span>Oscar</span><br>Bergström",
-      job: "Marketing Automation<br>Content Creator<br>Programmer"
+      hi: "HELLO",
+      marketing_automation: "Marketing Automation",
+      photographer:"Photographer",
+      programmer:"Programmer"
     },
     popup: {
       close: "Close",

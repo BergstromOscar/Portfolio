@@ -3,9 +3,14 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'EB Garamond', serif;
+    font-family: 'Raleway', sans-serif;
     font-weight: 100;
     box-sizing: border-box;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
 
 html{
@@ -23,8 +28,7 @@ html{
     height: 100%;
     overflow: auto;
     backdrop-filter: blur(8px);
-    background-color: var(--clr-gradient-weak);
-    
+    background-color: var(--clr-gradient-weak);   
   }
   
   .popup-content {
@@ -39,7 +43,7 @@ html{
     position: absolute;
     top: 30px;
     right: 40px;
-    color: #fff;
+    color: var(--clr-white);
     font-size: 40px;
     font-weight: 100;
     cursor: pointer;
@@ -107,12 +111,47 @@ nav{
 .logo{
     width: 140px;
 }
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    list-style: none;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 nav ul li{
     display: inline-block;
     list-style: none;
-    margin: 10px 20px;
+    margin: 10px 20px; opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 0.5s forwards;
+    transition: opacity 0.5s, transform 0.5s;
+}
 
+nav ul li:nth-child(1) {
+    animation-delay: 1.2s;
+}
+
+nav ul li:nth-child(2) {
+    animation-delay: 1.4s;
+}
+
+nav ul li:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+nav ul li:nth-child(4) {
+    animation-delay: 1.8s;
 }
 
 nav ul li a {
@@ -185,25 +224,52 @@ nav ul li a:hover::after{
         width: 100%;
     }
     /*-----------------------------Header-----------------------------*/
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);  /* Börja från botten */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);  /* Sluta på sin ursprungliga position */
+        opacity: 1;
+    }
+}
 
-.header-text{
+.header-text {
     margin-top: 20%;
 }
 
-.header-text h2{
-    font-size: 30px;
+.header-text h1 {
+    font-size: 100px;
+    margin-top: 20px;
+    animation: slideUp 1s ease-out forwards;
+    opacity: 0;
+    animation-delay: 1s;
 }
 
-.header-text h1{
-    font-size: 60px;
-    margin-top: 20px;
+.header-text h2 {
+    font-size: 30px;
+    animation: slideUp 1s 0.5s ease-out forwards;
+    opacity: 0;
 }
+.header-text h2:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.header-text h2:nth-child(3) {
+    animation-delay: 1.4s;
+}
+
+.header-text h2:nth-child(4) {
+    animation-delay: 1.7s; 
+}
+
 .header-text h1 span {
     color: var(--clr-primary);
 }
 /*-----------------------------About-----------------------------*/
 #about{
-    padding: 80px 0;
+    padding: 0 0 30px 0;
     color: var(--clr-text);
 }
 
@@ -212,6 +278,7 @@ nav ul li a:hover::after{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .about-col-1 {
     flex-basis: 35%;
     position: relative;
@@ -447,58 +514,41 @@ form .btn2{
     margin-top: -40px;
     display: block;
 }
-
-/*-----------------------------Small screens-----------------------------*/
 nav .fas{
     display: none;
 }
+/*-----------------------------Animations-----------------------------*/
+.animate-item {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s ease-out, transform 2s ease-out; 
+}
+
+.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*-----------------------------Small screens-----------------------------*/
+
+/*-----------------------------1150-----------------------------*/
 @media only screen and (max-width: 1150px){
+    
+      .popup .close {
+        top: 0px;
+      }
 
-    /*-----------------------------Nav-----------------------------*/
+      .popup .close:hover {
+        color: none;
+      }
     
-    /*-----------------------------About-----------------------------*/
-    
-    /*-----------------------------Portfolio-----------------------------*/
-    
-   
-    
-    .work-list{
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-gap: 20px;
-    }
-    
-    /*-----------------------------Contact-----------------------------*/
-        .btn.btn2{
-            padding: 10px 20px;
-            margin: 10px 10px 30px 0px;
-        }
-}
+      .popup-nav {
+        top: 50%;
+      }
 
-@media only screen and (max-width: 850px){
-
-    /*-----------------------------Nav-----------------------------*/
-    
-    /*-----------------------------About-----------------------------*/
-    
-    /*-----------------------------Portfolio-----------------------------*/
-    
-    
-    .work-list{
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    
-    /*-----------------------------Contact-----------------------------*/
-        .btn.btn2{
-            padding: 10px 20px;
-            margin: 10px 5px 30px 0px;
-        }
-}
-    
-@media only screen and (max-width: 600px){
-    #header{
-        background-image: 
-        url(https://oscarbergstrom.netlify.app/images/small-screens/background.jpg);
-    }
+      .nav-arrow:hover {
+        color: var(--clr-white);
+      }      
 
     .header-text{
         margin-top: 0px;
@@ -506,25 +556,54 @@ nav .fas{
     }
 
     .header-text h1{
-        font-size: 30px;
+        font-size: 60px;
+        margin-top: 0px;
     }
 
     .header-text h2{
-        font-size: 20px;
+        font-size: 17px;
+    }
+    /*-----------------------------Nav-----------------------------*/
+    
+    /*-----------------------------About-----------------------------*/
+
+    /*-----------------------------Services-----------------------------*/
+    
+    /*-----------------------------Portfolio-----------------------------*/  
+    .work-list{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+    }
+    
+    /*-----------------------------Contact-----------------------------*/
+    .btn.btn2{
+        padding: 10px 20px;
+        margin: 10px 10px 30px 0px;
+    }
+}
+
+/*-----------------------------850-----------------------------*/
+@media only screen and (max-width: 850px){
+
+    .popup-nav {
+        position: relative;
+        top: auto;
+        margin-top: 40px;
     }
 
-/*-----------------------------Nav-----------------------------*/
-    nav .fas{
+    /*-----------------------------Nav-----------------------------*/
+    nav .fas {
         display: block;
         font-size: 25px;
     }
-
-    .logo{
+    
+    .logo {
         width: 70px;
     }
-
-    nav ul{
-        background: var(--clr-primary);
+    
+    nav ul {
+        background: var(--clr-gradient);
+        display: block;
         position: fixed;
         top: 0;
         right: -200px;
@@ -534,26 +613,53 @@ nav .fas{
         z-index: 2;
         transition: right 0.5s;
     }
-
-    nav ul li{
+    
+    nav ul li {
         display: block;
         margin: 25px;
     }
-
-    nav ul .fas{
+    
+    nav ul .fas {
         position: absolute;
         top: 25px;
         left: 25px;
         cursor: pointer;
     }
-    nav ul .language-dropdown{
+    
+    nav ul .language-dropdown {
         display: block;
         margin: 25px;
     }
+    
+    /*-----------------------------About-----------------------------*/
+
+    /*-----------------------------Services-----------------------------*/
+    
+    /*-----------------------------Portfolio-----------------------------*/
+    .work-list{
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    /*-----------------------------Contact-----------------------------*/
+    .btn.btn2{
+        padding: 10px 20px;
+        margin: 10px 5px 30px 0px;
+    }
+}
+/*-----------------------------600px-----------------------------*/
+@media only screen and (max-width: 600px){
+
+    #header{
+        background-image: 
+        url(https://oscarbergstrom.netlify.app/images/small-screens/background.jpg);
+    }
+
+    /*-----------------------------Nav-----------------------------*/
+
 
     /*-----------------------------About-----------------------------*/
     #about{
-        padding: 30px 0;
+        padding: 0;
     }
 
     .sub-title{
@@ -572,23 +678,33 @@ nav .fas{
         font-size: 14px;
     }
 
+    .tab-contents ul{
+        margin-top: 10px;
+        grid-gap: 0px;
+    }
+
     .tab-links{
         font-size: 20px;
         margin-right: 20px;
     }
-/*-----------------------------Portfolio-----------------------------*/
-#portfolio{
-    padding: 10px, 0;
-    
-}
+    /*-----------------------------Services-----------------------------*/
 
-.work-list{
-   
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 15px;
-}
+    .services-list{
+        margin-top: 10px;
+        grid-gap: 20px;
+    }
 
-/*-----------------------------Contact-----------------------------*/
+    /*-----------------------------Portfolio-----------------------------*/
+    #portfolio{
+        padding: 10px, 0;
+    }
+
+    .work-list{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 15px;
+    }
+
+    /*-----------------------------Contact-----------------------------*/
     .contact-left, .contact-right{
         flex-basis: 100%;
     }
@@ -603,24 +719,33 @@ nav .fas{
     }
 }
 
+/*-----------------------------400px-----------------------------*/
 @media only screen and (max-width: 400px){
 
-/*-----------------------------Nav-----------------------------*/
+    /*-----------------------------Nav-----------------------------*/
 
-/*-----------------------------About-----------------------------*/
+    /*-----------------------------About-----------------------------*/
+    #about{
+        padding: 0;
+    }
 
-/*-----------------------------Portfolio-----------------------------*/
+    .container{
+        padding-top: 0px;
+    }
+    /*-----------------------------Services-----------------------------*/
 
-.work{
-    padding: 8px;
-}
+    /*-----------------------------Portfolio-----------------------------*/
 
-.work-list{
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    grid-gap: 15px;
-}
+    .work{
+        padding: 8px;
+    }
 
-/*-----------------------------Contact-----------------------------*/
+    .work-list{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-gap: 15px;
+    }
+
+    /*-----------------------------Contact-----------------------------*/
     .btn.btn2{
         padding: 10px 20px;
         margin: 10px 10px 30px 0px;
