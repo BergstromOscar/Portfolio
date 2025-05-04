@@ -21,12 +21,12 @@ export class MenuComponent extends HTMLElement {
                 }
             </style>
             <nav>
-                <a href="/"><img src="https://oscarbergstrom.netlify.app/public/images/logo.png" class="logo" alt="Oscar Bergström logo"></a>
                 <ul id="sidemenu">
-                    <li><a href="/src/pages/about/about.html" data-i18n="nav.about">About Me</a></li>
-                    <li><a href="/src/pages/services/services.html" data-i18n="nav.services">Services</a></li>
-                    <li><a href="/src/pages/portfolio/portfolio.html" data-i18n="nav.portfolio">Portfolio</a></li>
-                    <li><a href="/src/pages/contact/contact.html" data-i18n="nav.contact">Contact</a></li>
+                    <li><a href="/" data-i18n="nav.home"></a></li>
+                    <li><a href="/src/pages/about/about.html" data-i18n="nav.about"></a></li>
+                    <li><a href="/src/pages/services/services.html" data-i18n="nav.services"></a></li>
+                    <li><a href="/src/pages/portfolio/portfolio.html" data-i18n="nav.portfolio"></a></li>
+                    <li><a href="/src/pages/contact/contact.html" data-i18n="nav.contact"></a></li>
                     <li>
                       <div class="language-dropdown">
                         <i class="fa-solid fa-earth-europe" id="toggle-language" style="cursor: pointer;"></i>

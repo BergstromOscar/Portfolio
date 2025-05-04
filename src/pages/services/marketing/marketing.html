@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="head.About"></title>
+    <title data-i18n="services.marketing.title"></title>
     <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="about.css" />
-    <script type="module" src="/src/locales/translations.js"></script>
+    <link rel="stylesheet" href="../services.css" />
+    <script type="module" src="../src/locales/translations.js"></script>
     <script
       src="https://kit.fontawesome.com/70455eaf31.js"
       crossorigin="anonymous"
@@ -39,9 +39,9 @@
         initLanguage();
       });
     </script>
-    <!-----------------------------Tabs component----------------------------->
-    <script type="module" src="/src/components/TabsComponent.js"></script>
-    <!-----------------------------Footer component--------------------------->
+    <!-----------------------------Services component----------------------------->
+    <script type="module" src="/src/components/ServicesComponents.js"></script>
+    <!-----------------------------Footer component----------------------------->
     <script type="module" src="/src/components/FooterComponent.js"></script>
   </head>
   <!-----------------------------Body----------------------------->
@@ -51,17 +51,15 @@
       <div class="container">
         <!-----------------------------Menu----------------------------->
         <menu-component></menu-component>
-
         <!-----------------------------Header Text----------------------------->
         <div class="header-text">
-          <h1 data-i18n="about.title"></h1>
+          <h1 data-i18n="services.marketing"></h1>
         </div>
       </div>
     </div>
-    <!-----------------------------About----------------------------->
-    <tabs-component></tabs-component>
+    <!-----------------------------Services----------------------------->
+    <services-component></services-component>
     <!-----------------------------Footer----------------------------->
     <footer-component></footer-component>
   </body>
-  <!-----------------------------Script----------------------------->
 </html>

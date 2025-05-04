@@ -116,6 +116,7 @@ nav ul {
   justify-content: space-between;
   padding: 0;
   list-style: none;
+  margin-left: auto;
 }
 
 @keyframes slideIn {
@@ -153,6 +154,10 @@ nav ul li:nth-child(3) {
 
 nav ul li:nth-child(4) {
   animation-delay: 1.8s;
+}
+
+nav ul li:nth-child(5) {
+  animation-delay: 2s;
 }
 
 nav ul li a {
@@ -234,10 +239,6 @@ nav ul li a:hover::after {
     transform: translateY(0); /* Sluta på sin ursprungliga position */
     opacity: 1;
   }
-}
-
-.header-text {
-  margin-top: 20%;
 }
 
 .header-text h1 {

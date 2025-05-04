@@ -22,6 +22,7 @@
     />
 
     <!-----------------------------Components----------------------------->
+    <script type="module" src="/src/components/ImagePopupComponent.js"></script>
     <script type="module" src="/src/components/MenuComponent.js"></script>
     <script type="module">
       import {
@@ -42,23 +43,7 @@
   <!-----------------------------Body----------------------------->
   <body>
     <!-----------------------------PopUp----------------------------->
-    <div id="image-popup" class="popup">
-      <span class="close">&times;</span>
-      <img
-        class="popup-content"
-        id="popup-img"
-        alt="Fullscreen image"
-        loading="lazy"
-      />
-      <div class="popup-nav">
-        <span id="prev" class="nav-arrow"
-          ><i class="fa-solid fa-arrow-left"></i
-        ></span>
-        <span id="next" class="nav-arrow"
-          ><i class="fa-solid fa-arrow-right"></i
-        ></span>
-      </div>
-    </div>
+    <image-popup-component></image-popup-component>
     <!-----------------------------Header----------------------------->
     <div id="header">
       <div class="container">
@@ -75,7 +60,6 @@
     <!-----------------------------Portfolio----------------------------->
     <div id="portfolio">
       <div class="container">
-        <h1 class="sub-title animate" data-i18n="portfolio.title"></h1>
         <div class="work-list" id="work-list"></div>
       </div>
     </div>
@@ -138,58 +122,5 @@
     }
 
     displayImages();
-  </script>
-  <!-----------------------------Popup img----------------------------->
-  <script>
-    const popup = document.getElementById("image-popup");
-    const popupImg = document.getElementById("popup-img");
-    const closeBtn = document.querySelector(".popup .close");
-    const nextBtn = document.getElementById("next");
-    const prevBtn = document.getElementById("prev");
-
-    function getAllImages() {
-      return Array.from(document.querySelectorAll("#work-list img"));
-    }
-    let currentIndex = 0;
-
-    function showImage(index) {
-      const allImages = getAllImages();
-      if (index < 0) index = allImages.length - 1;
-      if (index >= allImages.length) index = 0;
-      currentIndex = index;
-      const img = allImages[currentIndex];
-      const originalName = img.getAttribute("data-name");
-      popupImg.src = `https://oscarbergstrom.netlify.app/src/assets/sizeOriginal/${originalName}`;
-      popupImg.alt = img.alt;
-      popup.style.display = "block";
-    }
-
-    document.addEventListener("click", function (e) {
-      const allImages = getAllImages();
-      const layer = e.target.closest(".work");
-      if (layer) {
-        const workImg = layer.closest(".work").querySelector("img");
-
-        currentIndex = allImages.findIndex((img) => img.src === workImg.src);
-        showImage(currentIndex);
-      }
-    });
-
-    closeBtn.addEventListener("click", () => (popup.style.display = "none"));
-
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) popup.style.display = "none";
-    });
-
-    nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
-    prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
-
-    document.addEventListener("keydown", (e) => {
-      if (popup.style.display === "block") {
-        if (e.key === "ArrowRight") showImage(currentIndex + 1);
-        if (e.key === "ArrowLeft") showImage(currentIndex - 1);
-        if (e.key === "Escape") popup.style.display = "none";
-      }
-    });
   </script>
 </html>

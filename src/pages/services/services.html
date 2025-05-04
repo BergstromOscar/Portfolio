@@ -22,7 +22,9 @@
     />
 
     <!-----------------------------Components----------------------------->
+    <!-----------------------------Menu component----------------------------->
     <script type="module" src="/src/components/MenuComponent.js"></script>
+    <!-----------------------------Language component----------------------------->
     <script type="module">
       import {
         initLanguage,
@@ -37,6 +39,9 @@
         initLanguage();
       });
     </script>
+    <!-----------------------------Services component----------------------------->
+    <script type="module" src="/src/components/ServicesComponents.js"></script>
+    <!-----------------------------Footer component----------------------------->
     <script type="module" src="/src/components/FooterComponent.js"></script>
   </head>
   <!-----------------------------Body----------------------------->
@@ -46,13 +51,15 @@
       <div class="container">
         <!-----------------------------Menu----------------------------->
         <menu-component></menu-component>
-
         <!-----------------------------Header Text----------------------------->
         <div class="header-text">
           <h1 data-i18n="services.title"></h1>
         </div>
       </div>
     </div>
+    <!-----------------------------Services----------------------------->
+    <services-component></services-component>
+    <!-----------------------------Footer----------------------------->
     <footer-component></footer-component>
   </body>
 </html>
