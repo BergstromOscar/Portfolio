@@ -1,211 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title">Oscar Bergström Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="locales/translations.js"></script>
-    <script src="https://kit.fontawesome.com/70455eaf31.js" crossorigin="anonymous" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-</head>
-<!-----------------------------Popup img----------------------------->
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="head.title"></title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script type="module" src="/src/locales/translations.js"></script>
+    <script
+      src="https://kit.fontawesome.com/70455eaf31.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-----------------------------components----------------------------->
+    <!-----------------------------Menu cmponent----------------------------->
+    <script type="module" src="src/components/MenuComponent.js"></script>
+    <!-----------------------------Language component----------------------------->
+    <script type="module">
+      import {
+        initLanguage,
+        saveLanguage,
+      } from "./src/components/SaveLanguageInCookiesComponent.js";
+
+      window.changeLang = (lang) => {
+        saveLanguage(lang);
+      };
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initLanguage();
+      });
+    </script>
+    <!-----------------------------Contact component----------------------------->
+    <script
+      type="module"
+      src="/src/components/contactFormComponent.js"
+    ></script>
+    <!-----------------------------Footer component----------------------------->
+    <script type="module" src="/src/components/FooterComponent.js"></script>
+  </head>
+  <!-----------------------------Popup img----------------------------->
+  <body>
     <div id="image-popup" class="popup">
-        <span class="close" >&times;</span>
-        <img class="popup-content" id="popup-img" alt="Fullscreen image" loading="lazy">
-        <div class="popup-nav">
-            <span id="prev" class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
-            <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
-        </div>
+      <span class="close">&times;</span>
+      <img
+        class="popup-content"
+        id="popup-img"
+        alt="Fullscreen image"
+        loading="lazy"
+      />
+      <div class="popup-nav">
+        <span id="prev" class="nav-arrow"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></span>
+        <span id="next" class="nav-arrow"
+          ><i class="fa-solid fa-arrow-right"></i
+        ></span>
+      </div>
     </div>
-<!-----------------------------Header----------------------------->
-<div id="header">    
-    <div class="container">
+    <!-----------------------------Header----------------------------->
+    <div id="header">
+      <div class="container">
         <!-----------------------------Menu----------------------------->
-        <nav>
-            <img src="https://oscarbergstrom.netlify.app/images/logo.png" class="logo" alt="Oscar Bergström logo">
-            <ul id="sidemenu">
-                <li><a href="#about" data-i18n="nav.about">About Me</a></li>
-                <li><a href="#services" data-i18n="nav.services">Services</a></li>
-                <li><a href="#portfolio" data-i18n="nav.portfolio">Portfolio</a></li>
-                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-                <div class="language-dropdown">
-                    <i class="fa-solid fa-earth-europe" onclick="toggleLanguageMenu()"></i>
-                    <div id="language-menu" class="dropdown-content" style="display: none;">
-                        <button onclick="setLanguage('sv')">Svenska</button>
-                        <button onclick="setLanguage('en')">English</button>
-                    </div>
-                </div>
-                <i class="fas fa-times" onclick="closemenu()"></i>
-            </ul>
-            <i class="fas fa-bars" onclick="openmenu()"></i>
-        </nav>
+        <menu-component></menu-component>
+
         <!-----------------------------Header Text----------------------------->
         <div class="header-text">
-            <h1 data-i18n="header.hi"></h1>
-            <h2 data-i18n="header.marketing_automation"></h2>
-            <h2 data-i18n="header.photographer"></h2>
-            <h2 data-i18n="header.programmer"></h2>
+          <h1 data-i18n="header.hi"></h1>
+          <h2 data-i18n="header.marketing_automation"></h2>
+          <h2 data-i18n="header.photographer"></h2>
+          <h2 data-i18n="header.programmer"></h2>
         </div>
+      </div>
     </div>
-</div>
-<!-----------------------------About----------------------------->
+    <!-----------------------------About----------------------------->
 
-<div id="about">
-    <div class="container">
+    <div id="about">
+      <div class="container">
         <div class="row">
-            <div class="about-col-1 animate">
-                <img src="https://oscarbergstrom.netlify.app/images/profile.png" alt="Profile picture Oscar Bergstrom" loading="lazy">
+          <div class="about-col-1 animate">
+            <img
+              src="https://oscarbergstrom.netlify.app/src/assets/profile.png"
+              alt="Profile picture Oscar Bergstrom"
+              loading="lazy"
+            />
+          </div>
+          <div class="about-col-2">
+            <h1 class="sub-title animate" data-i18n="about.title"></h1>
+            <p class="sub-p animate" data-i18n="about.short_description"></p>
+            <div class="tab-title animate">
+              <h3
+                class="tab-links animate active-link"
+                onclick="opentab('skills')"
+                data-i18n="tabs.skills.title"
+              >
+                Skills
+              </h3>
+              <h3
+                class="tab-links animate"
+                onclick="opentab('experience')"
+                data-i18n="tabs.experience.title"
+              >
+                Experience
+              </h3>
+              <h3
+                class="tab-links animate"
+                onclick="opentab('education')"
+                data-i18n="tabs.education.title"
+              >
+                Education
+              </h3>
             </div>
-            <div class="about-col-2">
-                <h1 class="sub-title animate" data-i18n="about.title"></h1>
-                <p class="sub-p animate" data-i18n="about.short_description"></p>
-                <div class="tab-title animate">
-                    <h3 class="tab-links animate active-link" onclick="opentab('skills')" data-i18n="tabs.skills.title">Skills</h3>
-                    <h3 class="tab-links animate" onclick="opentab('experience')" data-i18n="tabs.experience.title">Experience</h3>
-                    <h3 class="tab-links animate" onclick="opentab('education')" data-i18n="tabs.education.title">Education</h3>
-                </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.photographer">Photographer</h4><br><p data-i18n="tabs.skills.photographer_description">Freelance Photographer</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.designer">Designer</h4><br><p data-i18n="tabs.skills.designer_description">Drone pilot</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.app_developer">App Developer</h4><br><p data-i18n="tabs.skills.app_developer_description">Building mobile apps</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.video">Video</h4><br><p data-i18n="tabs.skills.video_description">Freelance Videographer</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.drone_pilot">Drone Pilot</h4><br><p data-i18n="tabs.skills.drone_pilot_description">Drone pilot with licence for the open category</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.skills.SEO">SEO</h4><br><p data-i18n="tabs.skills.SEO_description">SEO</p></li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.experience.software_developer">Software Developer</h4><br><p data-i18n="tabs.experience.software_developer_description">Software Developer</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.experience.marketing_automation">Marketing Automation</h4><br><p data-i18n="tabs.experience.marketing_automation_description">Marketing Automation</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.experience.photographer">Photographer</h4><br><p data-i18n="tabs.experience.photographer_description">Photographer</p></li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.education.linneuniversitetet">Linneuniversitetet 2018-2021</h4><br><p data-i18n="tabs.education.linneuniversitetet_description">Interactive media web technologies</p></li>
-                        <li class="tab-content-li animate"><h4 data-i18n="tabs.education.medieinstitutet">Medieinstitutet 2024-2025</h4><br><p data-i18n="tabs.education.medieinstitutet_description">Marketing automation specialist</p></li>
-                    </ul>
-                </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.skills.photographer"></h4>
+                  <br />
+                  <p data-i18n="tabs.skills.photographer_description"></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.skills.designer"></h4>
+                  <br />
+                  <p data-i18n="tabs.skills.designer_description"></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.skills.app_developer"></h4>
+                  <br />
+                  <p data-i18n="tabs.skills.app_developer_description"></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.skills.video"></h4>
+                  <br />
+                  <p data-i18n="tabs.skills.video_description"></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.skills.drone_pilot"></h4>
+                  <br />
+                  <p data-i18n="tabs.skills.drone_pilot_description"></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.skills.SEO"></h4>
+                  <br />
+                  <p data-i18n="tabs.skills.SEO_description"></p>
+                </li>
+              </ul>
             </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.experience.software_developer"></h4>
+                  <br />
+                  <p
+                    data-i18n="tabs.experience.software_developer_description"
+                  ></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.experience.marketing_automation"></h4>
+                  <br />
+                  <p
+                    data-i18n="tabs.experience.marketing_automation_description"
+                  ></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.experience.photographer"></h4>
+                  <br />
+                  <p data-i18n="tabs.experience.photographer_description"></p>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.education.linneuniversitetet"></h4>
+                  <br />
+                  <p
+                    data-i18n="tabs.education.linneuniversitetet_description"
+                  ></p>
+                </li>
+                <li class="tab-content-li animate">
+                  <h4 data-i18n="tabs.education.medieinstitutet"></h4>
+                  <br />
+                  <p data-i18n="tabs.education.medieinstitutet_description"></p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-----------------------------Services----------------------------->
+    <!-----------------------------Services----------------------------->
 
-<div id="services">
-    <div class="container">
+    <div id="services">
+      <div class="container">
         <h1 class="sub-title animate" data-i18n="services.title"></h1>
         <div class="services-list">
-            <div class="services-list-item animate">
-                <i class="fa-solid fa-chart-simple"></i>
-                <h2 data-i18n="services.marketing.title"></h2>
-                <p data-i18n="services.marketing.description"></p>
-                <a href="#" data-i18n="services.learn_more"></a>
-            </div>
-            <div class="services-list-item animate">
-                <i class="fa-solid fa-code"></i>
-                <h2 data-i18n="services.webdesign.title"></h2>
-                <p data-i18n="services.webdesign.description"></p>
-                <a href="#" data-i18n="services.learn_more"></a>
-            </div>
-            <div class="services-list-item animate">
-                <i class="fa-solid fa-camera"></i>
-                <h2 data-i18n="services.photography.title"></h2>
-                <p data-i18n="services.photography.description"></p>
-                <a href="#" data-i18n="services.learn_more"></a>
-            </div>
+          <div class="services-list-item animate">
+            <i class="fa-solid fa-chart-simple"></i>
+            <h2 data-i18n="services.marketing.title"></h2>
+            <p data-i18n="services.marketing.description"></p>
+            <a href="#" data-i18n="services.learn_more"></a>
+          </div>
+          <div class="services-list-item animate">
+            <i class="fa-solid fa-code"></i>
+            <h2 data-i18n="services.webdesign.title"></h2>
+            <p data-i18n="services.webdesign.description"></p>
+            <a href="#" data-i18n="services.learn_more"></a>
+          </div>
+          <div class="services-list-item animate">
+            <i class="fa-solid fa-camera"></i>
+            <h2 data-i18n="services.photography.title"></h2>
+            <p data-i18n="services.photography.description"></p>
+            <a href="#" data-i18n="services.learn_more"></a>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-----------------------------Portfolio----------------------------->
-<div id="portfolio">
-    <div class="container">
+    <!-----------------------------Portfolio----------------------------->
+    <div id="portfolio">
+      <div class="container">
         <h1 class="sub-title animate" data-i18n="portfolio.title"></h1>
         <div class="work-list" id="work-list"></div>
         <button class="btn animate" data-i18n="portfolio.see_more"></button>
+      </div>
     </div>
-</div>
-<!-----------------------------Contact----------------------------->
-<div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="sub-title" data-i18n="contact.title">Contact me</h1>
-                <p><i class="fas fa-paper-plane"></i><span data-i18n="contact.email"></span></p>
-                <p><i class="fas fa-phone-square-alt"></i><span data-i18n="contact.phone"></span></p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/OscarBergstrom96/"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/in/oscar-bergstr%C3%B6m-940297180/"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/racsomortsgreb/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/BergstromOscar/"><i class="fab fa-github"></i></a>
-                </div>
-                <a href="resources/CV.pdf" download class="btn btn2" data-i18n="contact.download_cv"> <i class="fa-solid fa-download"></i></a>
-                <a href="resources/Personligt brev.pdf" download class="btn btn2" data-i18n="contact.download_cover_letter"> <i class="fa-solid fa-download"></i></a>
-            </div>
-            <div class="contact-right">
-                    <form name="contact-form"  method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contact-form">
-                        <input type="text" name="Name" data-i18n="contact_form.name_placeholder" placeholder="Your name" required>
-                        <input type="email" name="Email" data-i18n="contact_form.email_placeholder" placeholder="Your email" required>
-                        <textarea name="Message" rows="6" data-i18n="contact_form.message_placeholder" placeholder="Your message"></textarea>
-                        <button type="submit" class="btn btn2" data-i18n="contact_form.submit_button">Submit</button>
-                    </form>
-                <span id="msg"></span>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <p data-i18n="contact.copyright">Copyright by Oscar.</p>
-    </div>
-</div>
-<!-----------------------------Script----------------------------->
-<!-----------------------------Active tab----------------------------->
-<script>
+    <!-----------------------------Contact----------------------------->
+    <contact-form-component></contact-form-component>
+    <footer-component></footer-component>
+    <!-----------------------------Script----------------------------->
+    <!-----------------------------Active tab----------------------------->
+    <script>
+      var tablinks = document.getElementsByClassName("tab-links");
+      var tabcontents = document.getElementsByClassName("tab-contents");
 
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    
-    function opentab(tabname){
-        for(tablink of tablinks){
-            tablink.classList.remove("active-link");
+      function opentab(tabname) {
+        for (tablink of tablinks) {
+          tablink.classList.remove("active-link");
         }
-        for(tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
+        for (tabcontent of tabcontents) {
+          tabcontent.classList.remove("active-tab");
         }
         event.currentTarget.classList.add("active-link");
         document.getElementById(tabname).classList.add("active-tab");
-    }
+      }
+    </script>
+    <!-----------------------------Img Sizes----------------------------->
+    <script>
+      const imageNames = [
+        "Castle.jpg",
+        "SandDunes.jpg",
+        "Shore.jpg",
+        "ForeverForest.JPG",
+        "BeachwavesLeft.JPG",
+        "BlueWater.jpg",
+        "BushesAndTrails.jpg",
+        "EndlessForest.JPG",
+        "JettyWithboats.jpg",
+        "Lillypads.JPG",
+        "MistyIsland.JPG",
+        "Mountains.JPG",
+        "ShoreWithBushes.jpg",
+        "SomethingInTheBush.JPG",
+        "SothernHills.JPG",
+        "TurqoseWater.jpg",
+      ];
 
-</script>
-<!-----------------------------Img Sizes----------------------------->
-<script>
-    const imageNames = [
-    "Castle.jpg", "SandDunes.jpg", "Shore.jpg", "ForeverForest.JPG",
-    "BeachwavesLeft.JPG", "BlueWater.jpg", "BushesAndTrails.jpg", "EndlessForest.JPG",
-    "JettyWithboats.jpg", "Lillypads.JPG", "MistyIsland.JPG", "Mountains.JPG",
-    "ShoreWithBushes.jpg", "SomethingInTheBush.JPG", "SothernHills.JPG", "TurqoseWater.jpg"
-];
+      const container = document.getElementById("work-list");
+      const seeMoreBtn = document.querySelector(
+        '.btn[data-i18n="portfolio.see_more"]'
+      );
 
-const container = document.getElementById('work-list');
-const seeMoreBtn = document.querySelector('.btn[data-i18n="portfolio.see_more"]');
+      let visibleImagesCount = 9;
 
-let visibleImagesCount = 9;
-
-function displayImages(count) {
-    container.innerHTML = "";
-    imageNames.slice(0, count).forEach(name => {
-        const title = name
-            .replace(/\.[^/.]+$/, '')
-            .replace(/([A-Z])/g, ' $1')
-            .replace(/^\s/, '')   
+      function displayImages(count) {
+        container.innerHTML = "";
+        imageNames.slice(0, count).forEach((name) => {
+          const title = name
+            .replace(/\.[^/.]+$/, "")
+            .replace(/([A-Z])/g, " $1")
+            .replace(/^\s/, "")
             .trim();
 
-        const imagePath = `https://oscarbergstrom.netlify.app/images/archive/`;
-        const html = `
+          const imagePath = `https://oscarbergstrom.netlify.app/src/assets/`;
+          const html = `
             <div class="work animate">
                 <img 
                     src="${imagePath}size250/${name}" 
@@ -221,201 +304,126 @@ function displayImages(count) {
                 
             </div>
         `;
-        container.innerHTML += html;
-    });
-}
-
-seeMoreBtn.addEventListener('click', () => {
-    visibleImagesCount = imageNames.length;
-    displayImages(visibleImagesCount);      
-    seeMoreBtn.style.display = 'none';      
-});
-
-displayImages(visibleImagesCount);
-
-  </script>
-<!-----------------------------Popup img----------------------------->
-<script>
-    const popup = document.getElementById("image-popup");
-    const popupImg = document.getElementById("popup-img");
-    const closeBtn = document.querySelector(".popup .close");
-    const nextBtn = document.getElementById("next");
-    const prevBtn = document.getElementById("prev");
-  
-    function getAllImages() {
-    return Array.from(document.querySelectorAll("#work-list img"));
-}
-    let currentIndex = 0;
-  
-    function showImage(index) {
-      const allImages = getAllImages();
-      if (index < 0) index = allImages.length - 1;
-      if (index >= allImages.length) index = 0;
-      currentIndex = index;
-      const img = allImages[currentIndex];
-      const originalName = img.getAttribute('data-name');
-      popupImg.src = `https://oscarbergstrom.netlify.app/images/archive/sizeOriginal/${originalName}`;
-      popupImg.alt = img.alt;
-      popup.style.display = "block";
-    }
-  
-    document.addEventListener("click", function (e) {
-  const allImages = getAllImages();
-  const layer = e.target.closest(".work");
-  if (layer) {
-    const workImg = layer.closest(".work").querySelector("img");
-    
-    currentIndex = allImages.findIndex(img => img.src === workImg.src);
-    showImage(currentIndex);
-  }
-});
-  
-    closeBtn.addEventListener("click", () => popup.style.display = "none");
-  
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) popup.style.display = "none";
-    });
-  
-    nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
-    prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
-
-    document.addEventListener("keydown", (e) => {
-      if (popup.style.display === "block") {
-        if (e.key === "ArrowRight") showImage(currentIndex + 1);
-        if (e.key === "ArrowLeft") showImage(currentIndex - 1);
-        if (e.key === "Escape") popup.style.display = "none";
+          container.innerHTML += html;
+        });
       }
-    });
-  </script>
-<!-----------------------------Open/Close menu----------------------------->
-<script>
 
-const menuIcon = document.querySelector(".fa-bars");
-const closeIcon = document.querySelector("#sidemenu .fa-times");
+      seeMoreBtn.addEventListener("click", () => {
+        visibleImagesCount = imageNames.length;
+        displayImages(visibleImagesCount);
+        seeMoreBtn.style.display = "none";
+      });
 
-function openmenu() {
-    sidemenu.style.right = "0px";
-    if (window.innerWidth < 850) {
-        menuIcon.style.display = "none";
-    }
-}
+      displayImages(visibleImagesCount);
+    </script>
+    <!-----------------------------Popup img----------------------------->
+    <script>
+      const popup = document.getElementById("image-popup");
+      const popupImg = document.getElementById("popup-img");
+      const closeBtn = document.querySelector(".popup .close");
+      const nextBtn = document.getElementById("next");
+      const prevBtn = document.getElementById("prev");
 
-function closemenu() {
-    sidemenu.style.right = "-200px"; 
-    if (window.innerWidth < 850) {
-        menuIcon.style.display = "block";
-    }
-}
-</script>
-<!-----------------------------Animate----------------------------->
-<script>
-   function animateElements(selector, options = {}) {
-    const elements = document.querySelectorAll(selector);
-    const {
-        delayOnLoad = null,
-        delayOnVisible = 0.5,
-        rootMargin = '0px',     
-        threshold = 0.1         
-    } = options;
+      function getAllImages() {
+        return Array.from(document.querySelectorAll("#work-list img"));
+      }
+      let currentIndex = 0;
 
-    const handleIntersection = (entries, observer) => {
-        entries.forEach(entry => {
+      function showImage(index) {
+        const allImages = getAllImages();
+        if (index < 0) index = allImages.length - 1;
+        if (index >= allImages.length) index = 0;
+        currentIndex = index;
+        const img = allImages[currentIndex];
+        const originalName = img.getAttribute("data-name");
+        popupImg.src = `https://oscarbergstrom.netlify.app/src/assets/sizeOriginal/${originalName}`;
+        popupImg.alt = img.alt;
+        popup.style.display = "block";
+      }
+
+      document.addEventListener("click", function (e) {
+        const allImages = getAllImages();
+        const layer = e.target.closest(".work");
+        if (layer) {
+          const workImg = layer.closest(".work").querySelector("img");
+
+          currentIndex = allImages.findIndex((img) => img.src === workImg.src);
+          showImage(currentIndex);
+        }
+      });
+
+      closeBtn.addEventListener("click", () => (popup.style.display = "none"));
+
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) popup.style.display = "none";
+      });
+
+      nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
+      prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
+
+      document.addEventListener("keydown", (e) => {
+        if (popup.style.display === "block") {
+          if (e.key === "ArrowRight") showImage(currentIndex + 1);
+          if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+          if (e.key === "Escape") popup.style.display = "none";
+        }
+      });
+    </script>
+    <!-----------------------------Animate----------------------------->
+    <script>
+      function animateElements(selector, options = {}) {
+        const elements = document.querySelectorAll(selector);
+        const {
+          delayOnLoad = null,
+          delayOnVisible = 0.5,
+          rootMargin = "0px",
+          threshold = 0.1,
+        } = options;
+
+        const handleIntersection = (entries, observer) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-visible');
-                observer.unobserve(entry.target);
+              entry.target.classList.add("animate-visible");
+              observer.unobserve(entry.target);
             }
+          });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, {
+          rootMargin,
+          threshold,
         });
-    };
 
-    const observer = new IntersectionObserver(handleIntersection, { rootMargin, threshold });
+        elements.forEach((el, index) => {
+          el.classList.add("animate-item");
 
-    elements.forEach((el, index) => {
-        el.classList.add('animate-item');
-
-        if (delayOnLoad !== null) {
+          if (delayOnLoad !== null) {
             setTimeout(() => {
-                el.style.animationDelay = `${delayOnLoad + (index * 0.2)}s`; // Exempel på sekventiell delay
-                el.classList.add('animate-visible');
+              el.style.animationDelay = `${delayOnLoad + index * 0.2}s`; // Exempel på sekventiell delay
+              el.classList.add("animate-visible");
             }, delayOnLoad * 1000);
-        } else {
+          } else {
             observer.observe(el);
-        }
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    animateElements('#about .about-col-1.animate', { delayOnVisible: 0.4 });
-    animateElements('#about .sub-title.animate', { delayOnVisible: 0.8 });
-    animateElements('#about .sub-p.animate', { delayOnVisible: 1 });
-    animateElements('#about .tab-links.animate', { delayOnLoad: 0.2 });
-    animateElements('#about .tab-content-li.animate', { delayOnLoad: 0.4 });
-
-    animateElements('#services .sub-title.animate', { delayOnLoad: 0.4 });
-    animateElements('#services .services-list-item.animate', { delayOnLoad: 0.8 });
-
-    animateElements('#portfolio .sub-title.animate', { delayOnLoad: 0.2 });
-    animateElements('#portfolio .work.animate', { delayOnLoad: 0.4 });
-    animateElements('#portfolio .btn.animate', { delayOnLoad: 0.8 });
-
-});
-</script>   
-<!-----------------------------Contact form----------------------------->
-<script>
-
-const form = document.forms['contact-form']
-const msg = document.getElementById("msg");
-
-form.addEventListener('submit', e => {
-  msg.innerHTML = "The message has been sent!";
-  setTimeout(() => {
-    msg.innerHTML = "";
-  }, 5000);
-});
-</script>
-<!-----------------------------Toggle language----------------------------->
-<script>
-        function toggleLanguageMenu() {
-            const menu = document.getElementById('language-menu');
-            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-        }
-
-        function setLanguage(lang) {
-            localStorage.setItem('preferredLanguage', lang);
-
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const keys = el.getAttribute('data-i18n').split('.');
-                let text = translations[lang];
-                
-                keys.forEach(key => {
-                    if (text) {
-                        text = text[key];
-                    }
-                });
-
-                if (text) {
-                    if (el.hasAttribute('placeholder')) {
-                        el.setAttribute('placeholder', text);
-                    } else {
-                        el.innerHTML = text;
-                    }
-                }
-            });
-            document.getElementById('language-menu').style.display = 'none';
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            const userLang = navigator.language || navigator.userLanguage;
-            
-            if (savedLang) {
-                setLanguage(savedLang);
-            } else if (userLang.startsWith('sv')) {
-                setLanguage('sv');
-            } else {
-                setLanguage('en');
-            }
+          }
         });
-</script>
-</body>
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        animateElements("#about .about-col-1.animate", { delayOnVisible: 0.4 });
+        animateElements("#about .sub-title.animate", { delayOnVisible: 0.8 });
+        animateElements("#about .sub-p.animate", { delayOnVisible: 1 });
+        animateElements("#about .tab-links.animate", { delayOnLoad: 0.2 });
+        animateElements("#about .tab-content-li.animate", { delayOnLoad: 0.4 });
+
+        animateElements("#services .sub-title.animate", { delayOnLoad: 0.4 });
+        animateElements("#services .services-list-item.animate", {
+          delayOnLoad: 0.8,
+        });
+
+        animateElements("#portfolio .sub-title.animate", { delayOnLoad: 0.2 });
+        animateElements("#portfolio .work.animate", { delayOnLoad: 0.4 });
+        animateElements("#portfolio .btn.animate", { delayOnLoad: 0.8 });
+      });
+    </script>
+  </body>
 </html>

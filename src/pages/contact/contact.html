@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="head.contact"></title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="contact.css" />
+    <script type="module" src="/src/locales/translations.js"></script>
+    <script
+      src="https://kit.fontawesome.com/70455eaf31.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-----------------------------Components----------------------------->
+    <script type="module" src="/src/components/MenuComponent.js"></script>
+    <script type="module">
+      import {
+        initLanguage,
+        saveLanguage,
+      } from "/src/components/SaveLanguageInCookiesComponent.js";
+
+      window.changeLang = (lang) => {
+        saveLanguage(lang);
+      };
+
+      window.addEventListener("DOMContentLoaded", () => {
+        initLanguage();
+      });
+    </script>
+    <script
+      type="module"
+      src="/src/components/contactFormComponent.js"
+    ></script>
+    <script type="module" src="/src/components/FooterComponent.js"></script>
+  </head>
+  <!-----------------------------Body----------------------------->
+  <body>
+    <!-----------------------------Header----------------------------->
+    <div id="header">
+      <div class="container">
+        <!-----------------------------Menu----------------------------->
+        <menu-component></menu-component>
+
+        <!-----------------------------Header Text----------------------------->
+        <div class="header-text">
+          <h1 data-i18n="contact.title"></h1>
+        </div>
+      </div>
+    </div>
+    <contact-form-component></contact-form-component>
+    <footer-component></footer-component>
+  </body>
+  <!-----------------------------Script----------------------------->
+</html>
