@@ -2,4 +2,7 @@
 /Portfolio  /src/pages/portfolio/portfolio.html  200
 /About  /src/pages/about/about.html  200
 /Services  /src/pages/services/services.html  200
+    /Marketing  /src/pages/services/marketing/marketing.html  200
+    /Programmer  /src/pages/services/programmer/programmer.html  200
+    /Photographer  /src/pages/services/photographer/photographer.html  200
 /Contact  /src/pages/contact/contact.html  200

@@ -17,19 +17,19 @@ export class ServicesComponent extends HTMLElement {
               <i class="fa-solid fa-chart-simple"></i>
               <h2 data-i18n="services.marketing.title"></h2>
               <p data-i18n="services.marketing.description"></p>
-              <a href="https://oscarbergstrom.netlify.app/src/pages/services/marketing/marketing.html" data-i18n="services.learn_more"></a>
+              <a href="/src/pages/services/marketing/marketing.html" data-i18n="services.learn_more"></a>
             </div>
             <div class="services-list-item animate">
               <i class="fa-solid fa-code"></i>
               <h2 data-i18n="services.webdesign.title"></h2>
               <p data-i18n="services.webdesign.description"></p>
-              <a href="https://oscarbergstrom.netlify.app/src/pages/services/marketing/programmer.html" data-i18n="services.learn_more"></a>
+              <a href="/src/pages/services/programmer/programmer.html" data-i18n="services.learn_more"></a>
             </div>
             <div class="services-list-item animate">
               <i class="fa-solid fa-camera"></i>
               <h2 data-i18n="services.photography.title"></h2>
               <p data-i18n="services.photography.description"></p>
-              <a href="https://oscarbergstrom.netlify.app/src/pages/services/marketing/photographer.html" data-i18n="services.learn_more"></a>
+              <a href="/src/pages/services/photographer/photographer.html" data-i18n="services.learn_more"></a>
             </div>
           </div>
         </div>
