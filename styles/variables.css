@@ -1,15 +1,23 @@
 :root {
-    --clr-primary: #434a36;
-    --clr-secondary: #344e41;
-    --clr-background: #000000;
-    --clr-content-background:  #262626;
-    --clr-gradient: rgb(0,0,0,0.6);
-    --clr-gradient: rgb(0,0,0,0.8);
-    --clr-gradient-weak: rgba(0, 0, 0, 0.2);
-    --clr-text: #fff;
-    --clr-accent: #a3b18a;
-    --clr-msg: #588157;
-    --clr-white: #fff;
-    --clr-black: #000000;
-  
-  }
+  --clr-primary: #434a36;
+  --clr-secondary: #344e41;
+  --clr-background: #000000;
+  --clr-content-background: #262626;
+
+  --clr-text: #fff;
+  --clr-accent: #a3b18a;
+  --clr-msg: #588157;
+
+  --clr-gradient: rgb(0, 0, 0, 0.6);
+  --clr-gradient: rgb(0, 0, 0, 0.8);
+  --clr-gradient-middle: rgba(0, 0, 0, 0.4);
+  --clr-gradient-weak: rgba(0, 0, 0, 0.2);
+
+  --clr-white: #fff;
+  --clr-black: #000000;
+
+  --clr-accept: #4caf50;
+  --clr-accept-hoover: #45a049;
+  --clr-reject: #f44336;
+  --clr-reject-hoover: #d32f2f;
+}

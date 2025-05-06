@@ -1,8 +1,10 @@
 const translations = {
   sv: {
+    /*-----------------------------Head-----------------------------*/
     head: {
       title: "Oscar Bergström Portfolio",
     },
+    /*-----------------------------Menu-----------------------------*/
     nav: {
       home: "Hem",
       about: "Om mig",
@@ -14,12 +16,21 @@ const translations = {
         eng: "Engelska",
       },
     },
+    /*-----------------------------Header-----------------------------*/
     header: {
       hi: "Hallå",
       marketing_automation: "Marketing Automation",
       photographer: "Fotograf",
       programmer: "Programmerare",
     },
+    /*-----------------------------Cookies-----------------------------*/
+    cookie: {
+      description:
+        "Den här webbplatsen använder cookies för att spara dina inställningar. Vill du acceptera cookies?",
+      accept: "Acceptera",
+      reject: "Avböj",
+    },
+    /*-----------------------------Popup-----------------------------*/
     popup: {
       close: "Stäng",
       prev: "Föregående",
@@ -129,9 +140,11 @@ const translations = {
 
   /*-----------------------------English-----------------------------*/
   en: {
+    /*-----------------------------Head-----------------------------*/
     head: {
       title: "Oscar Bergström Portfolio",
     },
+    /*-----------------------------Menu-----------------------------*/
     nav: {
       home: "Home",
       about: "About",
@@ -143,12 +156,21 @@ const translations = {
         eng: "English",
       },
     },
+    /*-----------------------------Header-----------------------------*/
     header: {
       hi: "HELLO",
       marketing_automation: "Marketing Automation",
       photographer: "Photographer",
       programmer: "Programmer",
     },
+    /*-----------------------------Cookies-----------------------------*/
+    cookie: {
+      description:
+        "This website uses Cookies to save your user settings. Do you accept cookies?",
+      accept: "Accept",
+      reject: "Decline",
+    },
+    /*-----------------------------Popup-----------------------------*/
     popup: {
       close: "Close",
       prev: "Previous",
