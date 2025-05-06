@@ -82,6 +82,23 @@ html {
   color: var(--clr-accent);
 }
 
+.popup-title,
+.popup-caption {
+  color: var(--clr-text);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.popup-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.popup-caption {
+  font-size: 1rem;
+  color: var(--clr-text);
+}
+
 body {
   background: var(--clr-background);
   color: var(--clr-text);

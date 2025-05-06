@@ -22,8 +22,11 @@
     />
 
     <!-----------------------------Components----------------------------->
+    <!-----------------------------Popup img component----------------------------->
     <script type="module" src="/src/components/ImagePopupComponent.js"></script>
+    <!-----------------------------Menu component----------------------------->
     <script type="module" src="/src/components/MenuComponent.js"></script>
+    <!-----------------------------Language component----------------------------->
     <script type="module">
       import {
         initLanguage,
@@ -38,6 +41,22 @@
         initLanguage();
       });
     </script>
+    <!-----------------------------Gallery search component----------------------------->
+    <script
+      type="module"
+      src="/src/components/GallerySearchComponent.js"
+    ></script>
+    <!-----------------------------Gallery filter component----------------------------->
+    <script
+      type="module"
+      src="/src/components/GalleryFilterComponent.js"
+    ></script>
+    <!-----------------------------Gallery-grid component----------------------------->
+    <script
+      type="module"
+      src="/src/components/GalleryGridComponent.js"
+    ></script>
+    <!-----------------------------Footer component----------------------------->
     <script type="module" src="/src/components/FooterComponent.js"></script>
   </head>
   <!-----------------------------Body----------------------------->
@@ -60,67 +79,10 @@
     <!-----------------------------Portfolio----------------------------->
     <div id="portfolio">
       <div class="container">
-        <div class="work-list" id="work-list"></div>
+        <gallery-search></gallery-search>
+        <gallery-grid></gallery-grid>
       </div>
     </div>
     <footer-component></footer-component>
   </body>
-
-  <!-----------------------------Script----------------------------->
-  <!-----------------------------Img Sizes----------------------------->
-  <script>
-    const imageNames = [
-      "Castle.jpg",
-      "SandDunes.jpg",
-      "Shore.jpg",
-      "ForeverForest.JPG",
-      "BeachwavesLeft.JPG",
-      "BlueWater.jpg",
-      "BushesAndTrails.jpg",
-      "EndlessForest.JPG",
-      "JettyWithboats.jpg",
-      "Lillypads.JPG",
-      "MistyIsland.JPG",
-      "Mountains.JPG",
-      "ShoreWithBushes.jpg",
-      "SomethingInTheBush.JPG",
-      "SothernHills.JPG",
-      "TurqoseWater.jpg",
-    ];
-
-    const container = document.getElementById("work-list");
-    let visibleImagesCount = 9;
-
-    function displayImages() {
-      container.innerHTML = "";
-      imageNames.forEach((name) => {
-        const title = name
-          .replace(/\.[^/.]+$/, "")
-          .replace(/([A-Z])/g, " $1")
-          .replace(/^\s/, "")
-          .trim();
-
-        const imagePath = `https://oscarbergstrom.netlify.app/src/assets/`;
-        const html = `
-            <div class="work animate">
-                <img 
-                    src="${imagePath}size250/${name}" 
-                    alt="${title}" 
-                    loading="lazy" 
-                    data-name="${name}"
-                    srcset="
-                        ${imagePath}size250/${name} 300w, 
-                        ${imagePath}size400/${name} 600w, 
-                        ${imagePath}size800/${name} 1000w,
-                        ${imagePath}sizeOriginal/${name} 2250w"
-                    sizes="(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2250px) 2250px" >
-                
-            </div>
-        `;
-        container.innerHTML += html;
-      });
-    }
-
-    displayImages();
-  </script>
 </html>

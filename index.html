@@ -46,6 +46,11 @@
     <script type="module" src="/src/components/TabsComponent.js"></script>
     <!-----------------------------Services component----------------------------->
     <script type="module" src="/src/components/ServicesComponents.js"></script>
+    <!-----------------------------Gallery-grid component----------------------------->
+    <script
+      type="module"
+      src="/src/components/GalleryGridComponent.js"
+    ></script>
     <!-----------------------------Contact component----------------------------->
     <script
       type="module"
@@ -81,7 +86,7 @@
     <div id="portfolio">
       <div class="container">
         <h1 class="sub-title animate" data-i18n="portfolio.title"></h1>
-        <div class="work-list" id="work-list"></div>
+        <gallery-grid></gallery-grid>
         <a
           href="src/pages/portfolio/portfolio.html"
           class="btn animate"
@@ -93,66 +98,6 @@
     <contact-form-component></contact-form-component>
     <footer-component></footer-component>
     <!-----------------------------Script----------------------------->
-    <!-----------------------------Img Sizes----------------------------->
-    <script>
-      const imageNames = [
-        "Castle.jpg",
-        "SandDunes.jpg",
-        "Shore.jpg",
-        "ForeverForest.JPG",
-        "BeachwavesLeft.JPG",
-        "BlueWater.jpg",
-        "BushesAndTrails.jpg",
-        "EndlessForest.JPG",
-        "JettyWithboats.jpg",
-        "Lillypads.JPG",
-        "MistyIsland.JPG",
-        "Mountains.JPG",
-        "ShoreWithBushes.jpg",
-        "SomethingInTheBush.JPG",
-        "SothernHills.JPG",
-        "TurqoseWater.jpg",
-      ];
-
-      const container = document.getElementById("work-list");
-      const seeMoreBtn = document.querySelector(
-        '.btn[data-i18n="portfolio.see_more"]'
-      );
-
-      let visibleImagesCount = 9;
-
-      function displayImages(count) {
-        container.innerHTML = "";
-        imageNames.slice(0, count).forEach((name) => {
-          const title = name
-            .replace(/\.[^/.]+$/, "")
-            .replace(/([A-Z])/g, " $1")
-            .replace(/^\s/, "")
-            .trim();
-
-          const imagePath = `https://oscarbergstrom.netlify.app/src/assets/`;
-          const html = `
-            <div class="work animate">
-                <img 
-                    src="${imagePath}size250/${name}" 
-                    alt="${title}" 
-                    loading="lazy" 
-                    data-name="${name}"
-                    srcset="
-                        ${imagePath}size250/${name} 300w, 
-                        ${imagePath}size400/${name} 600w, 
-                        ${imagePath}size800/${name} 1000w,
-                        ${imagePath}sizeOriginal/${name} 2250w"
-                    sizes="(max-width: 300px) 250px, (max-width: 600px) 400px, (max-width: 1000px) 800px, (max-width: 2250px) 2250px" >
-                
-            </div>
-        `;
-          container.innerHTML += html;
-        });
-      }
-
-      displayImages(visibleImagesCount);
-    </script>
     <!-----------------------------Animate----------------------------->
     <script>
       function animateElements(selector, options = {}) {

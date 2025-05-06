@@ -109,10 +109,11 @@ const translations = {
       learn_more: "Läs mer",
     },
 
-    /*-----------------------------Arbete-----------------------------*/
+    /*-----------------------------Portfolio-----------------------------*/
     portfolio: {
       title: "Fotografier",
       see_more: "Se mer",
+      search_placeholder: "Sök bilder...",
     },
     work: {
       test_description: "test test",
@@ -253,6 +254,7 @@ const translations = {
     portfolio: {
       title: "Photographs",
       see_more: "See more",
+      search_placeholder: "Search images...",
     },
     work: {
       test_description: "test test",

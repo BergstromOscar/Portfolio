@@ -7,7 +7,7 @@ class CookieConsent extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
       <style>
-      @import url("variables.css");
+      
         :host {
           position: fixed;
           top: 0;

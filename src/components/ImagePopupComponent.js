@@ -7,44 +7,44 @@ class ImagePopupComponent extends HTMLElement {
       <style>
         @import '/styles/style.css';
         @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
-
+        .fa-x{
+          font-size: 1rem;
+          color: white;
+          cursor: pointer;}
       </style>
-        <div id="image-popup" class="popup">
-          <span class="close">&times;</span>
-          <img
-            class="popup-content"
-            id="popup-img"
-            alt="Fullscreen image"
-            loading="lazy"
-          />
-          <div class="popup-nav">
-            <span id="prev" class="nav-arrow"
-              ><i class="fa-solid fa-arrow-left"></i
-            ></span>
-            <span id="next" class="nav-arrow"
-              ><i class="fa-solid fa-arrow-right"></i
-            ></span>
-          </div>
+      <div id="image-popup" class="popup">
+        <span class="close"><i class="fa-solid fa-x"></i></span>
+        <img class="popup-content" id="popup-img" alt="Fullscreen image" loading="lazy" />
+        <h2 id="popup-title" class="popup-title"></h2>
+        <p id="popup-caption" class="popup-caption"></p>
+        <div class="popup-nav">
+          <span id="prev" class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+          <span id="next" class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
         </div>
+      </div>
     `;
   }
 
   connectedCallback() {
     this.popup = this.shadowRoot.getElementById("image-popup");
     this.popupImg = this.shadowRoot.getElementById("popup-img");
+    this.titleEl = this.shadowRoot.getElementById("popup-title");
+    this.captionEl = this.shadowRoot.getElementById("popup-caption");
     this.closeBtn = this.shadowRoot.querySelector(".close");
     this.nextBtn = this.shadowRoot.getElementById("next");
     this.prevBtn = this.shadowRoot.getElementById("prev");
 
+    this.images = [];
     this.currentIndex = 0;
 
-    document.addEventListener("click", this.openPopup.bind(this));
-    this.closeBtn.addEventListener(
-      "click",
-      () => (this.popup.style.display = "none")
-    );
+    document.addEventListener("image-clicked", (e) => {
+      this.currentIndex = e.detail.index;
+      this.showImage(this.currentIndex);
+    });
+
+    this.closeBtn.addEventListener("click", () => this.closePopup());
     this.popup.addEventListener("click", (e) => {
-      if (e.target === this.popup) this.popup.style.display = "none";
+      if (e.target === this.popup) this.closePopup();
     });
     this.nextBtn.addEventListener("click", () =>
       this.showImage(this.currentIndex + 1)
@@ -53,42 +53,49 @@ class ImagePopupComponent extends HTMLElement {
       this.showImage(this.currentIndex - 1)
     );
     document.addEventListener("keydown", this.keyboardNav.bind(this));
+
+    this.fetchImages();
   }
 
-  getAllImages() {
-    return Array.from(document.querySelectorAll("#work-list img"));
-  }
-
-  openPopup(e) {
-    const layer = e.target.closest(".work");
-    if (!layer) return;
-
-    const allImages = this.getAllImages();
-    const img = layer.querySelector("img");
-    this.currentIndex = allImages.findIndex((el) => el.src === img.src);
-    this.showImage(this.currentIndex);
+  async fetchImages() {
+    const res = await fetch("/src/assets/img-data.JSON");
+    this.images = await res.json();
   }
 
   showImage(index) {
-    const allImages = this.getAllImages();
-    if (index < 0) index = allImages.length - 1;
-    if (index >= allImages.length) index = 0;
+    if (!this.images.length) return;
 
-    const img = allImages[index];
-    const originalName = img.getAttribute("data-name");
+    if (index < 0) index = this.images.length - 1;
+    if (index >= this.images.length) index = 0;
 
-    this.popupImg.src = `https://oscarbergstrom.netlify.app/src/assets/sizeOriginal/${originalName}`;
+    const img = this.images[index];
+    this.popupImg.src = `https://oscarbergstrom.netlify.app/src/assets/sizeOriginal${img.path}`;
     this.popupImg.alt = img.alt;
+    this.titleEl.textContent = img.name || "";
+    this.captionEl.textContent = img.caption || "";
     this.popup.style.display = "block";
-
     this.currentIndex = index;
+
+    this.preloadImage((index + 1) % this.images.length);
+    this.preloadImage((index - 1 + this.images.length) % this.images.length);
+  }
+  preloadImage(index) {
+    const img = new Image();
+    const target = this.images[index];
+    if (target) {
+      img.src = `https://oscarbergstrom.netlify.app/src/assets/sizeOriginal${target.path}`;
+    }
+  }
+
+  closePopup() {
+    this.popup.style.display = "none";
   }
 
   keyboardNav(e) {
     if (this.popup.style.display === "block") {
       if (e.key === "ArrowRight") this.showImage(this.currentIndex + 1);
       if (e.key === "ArrowLeft") this.showImage(this.currentIndex - 1);
-      if (e.key === "Escape") this.popup.style.display = "none";
+      if (e.key === "Escape") this.closePopup();
     }
   }
 }
