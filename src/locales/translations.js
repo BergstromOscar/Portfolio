@@ -18,7 +18,7 @@ const translations = {
     },
     /*-----------------------------Header-----------------------------*/
     header: {
-      hi: "Hallå",
+      hi: "Oscar Bergström",
       marketing_automation: "Marketing Automation",
       photographer: "Fotograf",
       programmer: "Programmerare",
@@ -159,7 +159,7 @@ const translations = {
     },
     /*-----------------------------Header-----------------------------*/
     header: {
-      hi: "HELLO",
+      hi: "Oscar Bergström",
       marketing_automation: "Marketing Automation",
       photographer: "Photographer",
       programmer: "Programmer",
@@ -208,7 +208,7 @@ const translations = {
       },
       experience: {
         title: "Experience",
-        sofware_developer: "Software Developer",
+        software_developer: "Software Developer",
         software_developer_description:
           "My background as a developer is characterized by a strong blend of creativity and technical precision. I thrive in the intersection between human needs and technology, where I analyze requirements, build user-friendly systems, and create solutions that truly make a difference. With experience in both frontend and backend development, database management, and cloud services, I can see the big picture while remaining attentive to the details that create a seamless user experience. I am inspired by the potential of technology and driven to create smart, sustainable, and functional solutions that simplify everyday life.",
         marketing_automation: "Marketing Automation",
