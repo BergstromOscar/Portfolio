@@ -643,6 +643,11 @@ nav .fas {
     display: block;
     font-size: 25px;
   }
+  
+  nav {
+      justify-content: end;
+      margin-top: 20px;
+  }
 
   .logo {
     width: 70px;
@@ -675,7 +680,6 @@ nav .fas {
 
   nav ul .language-dropdown {
     display: block;
-    margin: 25px;
   }
 
   /*-----------------------------About-----------------------------*/

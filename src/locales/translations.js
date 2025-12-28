@@ -6,7 +6,7 @@ const translations = {
     },
     /*-----------------------------Menu-----------------------------*/
     nav: {
-      home: "Hem",
+      home: "Start",
       about: "Om mig",
       services: "Tjänster",
       portfolio: "Portfolio",
@@ -147,7 +147,7 @@ const translations = {
     },
     /*-----------------------------Menu-----------------------------*/
     nav: {
-      home: "Home",
+      home: "Start",
       about: "About",
       services: "Services",
       portfolio: "Portfolio",

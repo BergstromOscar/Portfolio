@@ -75,7 +75,8 @@ class GallerySearchComponent extends HTMLElement {
           background-color: transparent;
           border: 2px solid white;
           outline: none;
-          padding: 10px 0;
+          padding: 10px 0px 10px 10px;
+          border-radius: 10px;
         }
 
         button {
@@ -97,6 +98,7 @@ class GallerySearchComponent extends HTMLElement {
           color: white;
           font-size: 1.2rem;
           cursor: pointer;
+          padding-left: 10px;
         }
 
         .filter-tags {
@@ -108,7 +110,7 @@ class GallerySearchComponent extends HTMLElement {
           max-width: 700px;
           padding: 10px;
           background-color: transparent;
-          border-radius: 4px;
+          border-radius: 10px;
           z-index: 1;
           position: relative;
         }
