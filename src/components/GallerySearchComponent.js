@@ -65,8 +65,7 @@ class GallerySearchComponent extends HTMLElement {
         .search-container {
           position: relative;
           flex: 1;
-          min-width: 250px;
-          width: 100%;
+          width: 90%;
         }
 
         input {
@@ -76,7 +75,7 @@ class GallerySearchComponent extends HTMLElement {
           border: 2px solid white;
           outline: none;
           padding: 10px 0px 10px 10px;
-          border-radius: 10px;
+          border-radius: 25px;
         }
 
         button {
@@ -110,7 +109,7 @@ class GallerySearchComponent extends HTMLElement {
           max-width: 700px;
           padding: 10px;
           background-color: transparent;
-          border-radius: 10px;
+          border-radius: 25px;
           z-index: 1;
           position: relative;
         }
@@ -118,7 +117,7 @@ class GallerySearchComponent extends HTMLElement {
         .tag {
           padding: 4px 10px;
           border: 1px solid white;
-          border-radius: 4px;
+          border-radius: 25px;
           cursor: pointer;
           color: white;
           background: transparent;
@@ -136,7 +135,6 @@ class GallerySearchComponent extends HTMLElement {
 
         @media (max-width: 600px) {
           .top-row {
-            flex-direction: column;
             align-items: stretch;
           }
 
